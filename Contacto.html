@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APE-ICTION | Contacto</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="team.css">
+    <link rel="icon" type="image/png" href="Images/Banana_Peeled.png">
+
+    <style>
+        body {
+            overflow: auto;
+            min-height: 100vh;
+        }
+
+        .contact-wrapper {
+            max-width: 980px;
+            margin: 125px auto 30px;
+            padding: 0 20px;
+            min-height: calc(100vh - 260px);
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-panel {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.35);
+            border: 2px solid rgba(80, 255, 120, 0.18);
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            padding: 48px 44px;
+            color: #e9ffe4;
+            font-family: 'Cinzel', serif;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+        }
+
+        .contact-title {
+            margin: 0 0 8px;
+            text-align: center;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 48px;
+            color: #d9ffd0;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.55), 0 0 14px rgba(80, 255, 120, 0.25);
+        }
+
+        .contact-subtitle {
+            margin: 0 0 26px;
+            text-align: center;
+            font-family: 'Carter One', cursive;
+            color: #b8e8b0;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 14px;
+        }
+
+        .contact-form label {
+            font-family: 'Carter One', cursive;
+            color: #d9ffd0;
+            font-size: 16px;
+            letter-spacing: 0.6px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(80, 255, 120, 0.28);
+            background: rgba(0, 0, 0, 0.4);
+            color: #e9ffe4;
+            font-size: 16px;
+            font-family: 'Cinzel', serif;
+            box-sizing: border-box;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: rgba(120, 255, 160, 0.75);
+            box-shadow: 0 0 0 3px rgba(80, 255, 120, 0.18);
+        }
+
+        .contact-note {
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .contact-actions {
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .direct-mail {
+            margin-top: 24px;
+            text-align: center;
+            background: rgba(80, 255, 120, 0.08);
+            border: 1px solid rgba(80, 255, 120, 0.2);
+            border-radius: 10px;
+            padding: 14px;
+            font-size: 16px;
+        }
+
+        .direct-mail a {
+            color: #d9ffd0;
+        }
+
+        .send-success {
+            display: none;
+            margin: 0 0 16px;
+            text-align: center;
+            background: rgba(80, 255, 120, 0.12);
+            border: 1px solid rgba(120, 255, 160, 0.35);
+            border-radius: 10px;
+            padding: 12px;
+            font-family: 'Carter One', cursive;
+            color: #d9ffd0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                margin-top: 150px;
+                min-height: auto;
+            }
+
+            .contact-panel {
+                padding: 30px 22px;
+            }
+
+            .contact-title {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="Main-Navbar" class="visible">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="Images/Banana_Peeled.png" alt="Logo Alpha Studios">
+                <h1>ALPHA STUDIOS</h1>
+            </div>
+
+            <nav class="navbar-links">
+                <a href="index.html">Inicio</a>
+                <a href="Equipo.html">Equipo</a>
+                <a href="Contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-wrapper">
+        <section class="contact-panel">
+            <h1 class="contact-title">Contacto</h1>
+            <p class="contact-subtitle">ENVIA TU MENSAJE A ALPHA STUDIOS</p>
+            <div id="send-success" class="send-success">Mensaje enviado correctamente. Gracias por contactarnos.</div>
+
+            <form class="contact-form" action="https://formsubmit.co/apeiction@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde APE-ICTION">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://apeiction-git.github.io/Contacto.html?enviado=1">
+
+                <label for="name">Nombre</label>
+                <input id="name" name="nombre" type="text" placeholder="Tu nombre" required>
+
+                <label for="email">Correo electrónico</label>
+                <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required>
+
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+
+                <p class="contact-note">
+                    Al enviar, aceptas que usemos tus datos para responder tu consulta.
+                </p>
+
+                <div class="contact-actions">
+                    <button class="jungle-btn" type="submit">ENVIAR MENSAJE</button>
+                </div>
+            </form>
+
+            <div class="direct-mail">
+                También puedes escribirnos directamente a
+                <a href="mailto:apeiction@gmail.com">apeiction@gmail.com</a>.
+            </div>
+        </section>
+    </main>
+
+    <footer id="Main-Footer">
+        <div class="footer-content">
+            <h3>APE-ICTION</h3>
+            <p>Proyecto creado por ALPHA-STUDIOS</p>
+
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="Download.html">Descargar</a>
+                <a href="Contacto.html">Contacto</a>
+                <a href="Privacidad.html">Privacidad</a>
+            </div>
+
+            <p class="footer-copy">© 2026 APE-ICTION — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("enviado") === "1") {
+            const successBox = document.getElementById("send-success");
+            if (successBox) successBox.style.display = "block";
+        }
+    </script>
+</body>
+</html>

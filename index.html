@@ -34,10 +34,9 @@
         </div>
 
         <nav class="navbar-links">
-            <a href="#">Inicio</a>
-            <a href="#">Proyectos</a>
+            <a href="SpecialThanks.html">Special Thanks</a>
             <a href="Equipo.html">Equipo</a>
-            <a href="#">Contacto</a>
+            <a href="Contacto.html">Contacto</a>
         </nav>
     </div>
 </header>
@@ -46,24 +45,82 @@
 <body>
 
     <!-- HERO PRINCIPAL -->
-    <div id="Main-Div">
+    <section id="Main-Div" data-reveal>
+        <div class="hero-content">
+            <p class="hero-kicker">ALPHA STUDIOS PRESENTA</p>
+            <h1 id="Main-Title">APE-ICTION</h1>
+            <p id="Main-Subtitle">Saltar, escalar y deslizarse por la jungla.</p>
 
-        <h1 id="Main-Title">APE-ICTION</h1>
+            <div class="hero-actions">
+                <a class="jungle-btn" href="Download.html">DOWNLOAD</a>
+                <a class="jungle-btn secondary" href="Equipo.html">VER EQUIPO</a>
+            </div>
 
-        <img id="Main-Logo" src="Images/IMG 3.0 sin fondo.png" alt="Logo Ape-ICTION">
+            <p class="hero-status">PC | Demo disponible</p>
+        </div>
 
-        <p id="Main-Subtitle"> DISPONIBLE AHORA </p>
+        <div class="hero-visual">
+            <img id="Main-Logo" src="Images/IMG 3.0 sin fondo.png" alt="Logo Ape-ICTION">
+        </div>
+    </section>
 
-        <a class="jungle-btn" href="Download.html"> DOWNLOAD </a>
 
+    <div id="ResumeMain-Div" data-reveal>
+        <h2>¿Qué es Ape-ICTION?</h2>
+        <p class="resume-text">
+            <span class="resume-line">En Ape-ICTION no hay paseos tranquilos: la jungla respira, cambia y te reta en cada paso.</span>
+            <span class="resume-line">Explora zonas misteriosas, encuentra rutas secretas y toma decisiones rapidas mientras todo se complica.</span>
+            <span class="resume-line">Reune recursos, improvisa bajo presion y supera desafios que exigen reflejos y estrategia.</span>
+            <span class="resume-line resume-highlight">Aqui no gana el mas fuerte: gana quien mejor se adapta.</span>
+        </p>
     </div>
 
+    <section id="Main-Gallery" data-reveal>
+        <div class="gallery-header">
+            <h2>Galería</h2>
+        </div>
 
-    <div id="ResumeMain-Div">
-        <h2>¿Qué es Ape-ICTION?</h2>
-        <p>
-            Aquí hay que poner el resumen del juego.
-        </p>
+        <div class="gallery-slider" data-gallery>
+            <button class="gallery-nav prev" type="button" data-gallery-prev aria-label="Imagen anterior">‹</button>
+
+            <div class="gallery-track" data-gallery-track>
+                <article class="gallery-slide active">
+                    <img src="Images/gallery-1.jpg" alt="Escena de juego 1">
+                </article>
+                <article class="gallery-slide">
+                    <img src="Images/gallery-2.jpg" alt="Escena de juego 2">
+                </article>
+                <article class="gallery-slide">
+                    <img src="Images/gallery-3.jpg" alt="Escena de juego 3">
+                </article>
+                <article class="gallery-slide">
+                    <img src="Images/gallery-4.jpg" alt="Escena de juego 4">
+                </article>
+                <article class="gallery-slide">
+                    <img src="Images/gallery-5.jpg" alt="Escena de juego 5">
+                </article>
+            </div>
+
+            <button class="gallery-nav next" type="button" data-gallery-next aria-label="Imagen siguiente">›</button>
+        </div>
+
+        <div class="gallery-dots" data-gallery-dots></div>
+    </section>
+
+    <section id="Main-CTA-Double" data-reveal>
+        <h2>¿Listo para entrar en la jungla?</h2>
+        <p>Descarga el juego o conoce al equipo detrás de APE-ICTION.</p>
+        <div class="cta-double-actions">
+            <a class="jungle-btn" href="Download.html">DOWNLOAD</a>
+            <a class="jungle-btn secondary" href="Equipo.html">VER EQUIPO</a>
+        </div>
+    </section>
+
+    <div id="Gallery-Lightbox" class="gallery-lightbox" aria-hidden="true">
+        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Cerrar galeria">×</button>
+        <button class="lightbox-nav prev" type="button" data-lightbox-prev aria-label="Imagen anterior">‹</button>
+        <img id="Lightbox-Image" src="" alt="Vista ampliada de galeria">
+        <button class="lightbox-nav next" type="button" data-lightbox-next aria-label="Imagen siguiente">›</button>
     </div>
 
 </body>
@@ -77,8 +134,8 @@
         <div class="footer-links">
             <a href="#">Inicio</a>
             <a href="Download.html">Descargar</a>
-            <a href="">Contacto</a>
-            <a href="#">Privacidad</a>
+            <a href="Contacto.html">Contacto</a>
+            <a href="Privacidad.html">Privacidad</a>
         </div>
 
         <p class="footer-copy"> © 2026 APE-ICTION — Todos los derechos reservados </p>

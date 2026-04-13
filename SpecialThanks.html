@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APE-ICTION | Special Thanks</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Images/Banana_Peeled.png">
+
+    <style>
+        :root {
+            --creator-rgb: 120, 255, 170;
+            --creator-strong-rgb: 150, 255, 190;
+        }
+
+        body {
+            overflow-y: auto;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 16% 12%, rgba(var(--creator-rgb), 0.25), transparent 36%),
+                radial-gradient(circle at 86% 20%, rgba(var(--creator-strong-rgb), 0.22), transparent 34%),
+                linear-gradient(180deg, #061d0d, #0d3519 40%, #082712 100%);
+            transition: background 0.9s ease;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 70%, rgba(var(--creator-rgb), 0.16), transparent 40%),
+                radial-gradient(circle at 78% 78%, rgba(var(--creator-strong-rgb), 0.14), transparent 42%),
+                radial-gradient(circle at center, transparent 52%, rgba(0, 0, 0, 0.46) 100%);
+            transition: background 0.9s ease;
+            animation: thanksBackgroundDrift 18s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background:
+                repeating-linear-gradient(
+                    135deg,
+                    rgba(var(--creator-rgb), 0.045) 0,
+                    rgba(var(--creator-rgb), 0.045) 2px,
+                    transparent 2px,
+                    transparent 24px
+                );
+            opacity: 0.35;
+            transition: background 0.9s ease;
+        }
+
+        .thanks-journey {
+            margin-top: 88px;
+            scroll-snap-type: y mandatory;
+            position: relative;
+            max-width: 1250px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 500px;
+        }
+
+        .thanks-stage {
+            min-height: calc(100vh - 88px);
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            padding: 34px 28px;
+        }
+
+        .fan-wrap {
+            display: flex;
+            justify-content: center;
+            perspective: 1200px;
+            position: sticky;
+            top: 120px;
+            align-self: flex-start;
+            height: 72vh;
+            align-items: center;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4));
+        }
+
+        .fan-persistent {
+            position: fixed;
+            left: max(14px, calc((100vw - 1250px) / 2 + 20px));
+            top: 120px;
+            width: 220px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .fan-core {
+            position: relative;
+            width: 220px;
+            height: 460px;
+            border-radius: 999px;
+            border: 1px solid rgba(var(--creator-strong-rgb), 0.2);
+            background: radial-gradient(circle at center, rgba(var(--creator-rgb), 0.1), rgba(0, 0, 0, 0.2));
+            box-shadow: inset 0 0 30px rgba(var(--creator-rgb), 0.12);
+        }
+
+        .fan-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 180px;
+            height: 62px;
+            margin-left: -90px;
+            margin-top: -31px;
+            border-radius: 999px;
+            border: 1px solid rgba(var(--creator-strong-rgb), 0.35);
+            background: linear-gradient(160deg, rgba(8, 34, 16, 0.9), rgba(22, 72, 34, 0.65));
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+            transform-origin: center center;
+            transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease, box-shadow 0.45s ease;
+            display: grid;
+            place-items: center;
+            padding: 10px 16px;
+            text-align: center;
+            font-family: 'Carter One', cursive;
+            color: #d9ffd0;
+            font-size: 16px;
+            letter-spacing: 0.8px;
+        }
+
+        .fan-card[data-pos="-2"] { transform: translateY(-150px) translateX(8px) rotate(-14deg) scale(0.74); opacity: 0.2; filter: blur(1px); }
+        .fan-card[data-pos="-1"] { transform: translateY(-78px) translateX(2px) rotate(-8deg) scale(0.88); opacity: 0.52; filter: blur(0.3px); }
+        .fan-card[data-pos="0"]  { transform: translateY(0) translateX(0) rotate(0deg) scale(1.08); opacity: 1; filter: blur(0); box-shadow: 0 16px 34px rgba(0,0,0,0.58), 0 0 26px rgba(var(--creator-rgb),0.34); animation: fanCenterPulse 2.6s ease-in-out infinite; }
+        .fan-card[data-pos="1"]  { transform: translateY(78px) translateX(2px) rotate(8deg) scale(0.88); opacity: 0.52; filter: blur(0.3px); }
+        .fan-card[data-pos="2"]  { transform: translateY(150px) translateX(8px) rotate(14deg) scale(0.74); opacity: 0.2; filter: blur(1px); }
+        .fan-card[data-pos="far"] { transform: translateY(0) scale(0.5); opacity: 0; filter: blur(3px); }
+
+        .thanks-panel {
+            position: relative;
+            border-radius: 20px;
+            padding: 48px 44px;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(var(--creator-rgb), 0.18), transparent 34%),
+                linear-gradient(165deg, rgba(8, 28, 14, 0.92), rgba(12, 44, 20, 0.78));
+            border: 1px solid rgba(var(--creator-strong-rgb), 0.24);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            overflow: hidden;
+            transform: translateX(100px) rotateY(-18deg) scale(0.94);
+            opacity: 0.18;
+            transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.05s ease, box-shadow 0.7s ease, border-color 0.45s ease;
+            max-width: 920px;
+            margin-left: 18px;
+        }
+
+        .thanks-panel > *:first-child {
+            margin-top: 0;
+        }
+
+        .thanks-panel > *:last-child {
+            margin-bottom: 0;
+        }
+
+        .thanks-stage.active .thanks-panel {
+            transform: translateX(0) rotateY(0deg) scale(1);
+            opacity: 1;
+            border-color: rgba(var(--creator-strong-rgb), 0.45);
+            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.58), 0 0 34px rgba(var(--creator-rgb), 0.25);
+        }
+
+        .thanks-panel::before {
+            content: "";
+            position: absolute;
+            inset: -120% -40%;
+            background: linear-gradient(110deg, transparent 40%, rgba(165, 255, 195, 0.15) 51%, transparent 63%);
+            transform: translateX(-48%) rotate(8deg);
+            transition: transform 1s ease;
+            pointer-events: none;
+        }
+
+        .thanks-stage.active .thanks-panel::before {
+            transform: translateX(44%) rotate(8deg);
+        }
+
+        .thanks-kind {
+            margin: 0 0 8px;
+            color: rgba(var(--creator-rgb), 0.95);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1.6px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .thanks-title {
+            margin: 4px 0 0;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(34px, 4vw, 56px);
+            color: #dcffd5;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6), 0 0 18px rgba(var(--creator-rgb), 0.26);
+        }
+
+        .thanks-creator {
+            margin: 14px 0 0;
+            font-family: 'Carter One', cursive;
+            color: rgba(var(--creator-strong-rgb), 0.92);
+            font-size: 25px;
+        }
+
+        .thanks-text {
+            margin: 20px 0 0;
+            color: #dfe9d9;
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            line-height: 1.7;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+        }
+
+        .thanks-link {
+            margin-top: 16px;
+            display: inline-block;
+            color: #d7ffd1;
+            text-decoration: none;
+            font-family: 'Carter One', cursive;
+            font-size: 18px;
+            letter-spacing: 0.6px;
+            border-bottom: 1px solid rgba(var(--creator-strong-rgb), 0.45);
+            transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .thanks-link:hover {
+            color: #ffffff;
+            border-bottom-color: rgba(255, 255, 255, 0.8);
+            transform: translateX(4px);
+        }
+
+        .creator-showcase {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding-top: 10px;
+        }
+
+        .creator-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 3px solid rgba(var(--creator-strong-rgb), 0.36);
+            box-shadow: 0 0 18px rgba(var(--creator-rgb), 0.33), 0 12px 24px rgba(0, 0, 0, 0.5);
+            transform: perspective(900px) rotateX(4deg) scale(0.94);
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease;
+        }
+
+        .thanks-stage.active .creator-photo {
+            transform: perspective(900px) rotateX(0deg) scale(1);
+        }
+
+        .creator-meta {
+            min-width: 220px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .creator-source {
+            margin: 10px 0 0;
+            font-family: 'Cinzel', serif;
+            font-size: 15px;
+            color: #b9deb3;
+            opacity: 0.9;
+        }
+
+        .thanks-edit-note {
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px dashed rgba(var(--creator-strong-rgb), 0.22);
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: #b7dbb2;
+        }
+
+        .thanks-signature {
+            margin-top: 14px;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 20px;
+            color: #d9ffd3;
+            letter-spacing: 0.6px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+        }
+
+        .thanks-intro .thanks-text,
+        .thanks-final .thanks-text {
+            font-size: 24px;
+        }
+
+        .thanks-scroll-hint {
+            margin-top: 28px;
+            font-family: 'Carter One', cursive;
+            color: #b9ecb3;
+            font-size: 13px;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .thanks-scroll-hint span {
+            display: inline-block;
+            animation: hintBounce 1.6s ease-in-out infinite;
+        }
+
+        @keyframes hintBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
+        @keyframes fanCenterPulse {
+            0%, 100% {
+                box-shadow: 0 16px 34px rgba(0,0,0,0.58), 0 0 24px rgba(var(--creator-rgb),0.32);
+            }
+            50% {
+                box-shadow: 0 18px 38px rgba(0,0,0,0.6), 0 0 32px rgba(var(--creator-strong-rgb),0.4);
+            }
+        }
+
+        @keyframes thanksBackgroundDrift {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                transform: scale(1.03) translateY(-10px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .thanks-journey {
+                margin-top: 126px;
+                padding-left: 0;
+            }
+
+            .thanks-stage {
+                gap: 14px;
+                min-height: calc(100vh - 126px);
+                padding: 18px 16px;
+            }
+
+            .fan-persistent {
+                position: static;
+                width: auto;
+                margin: 0 16px 8px;
+            }
+
+            .fan-core {
+                height: 120px;
+                width: min(92vw, 340px);
+                border-radius: 12px;
+            }
+
+            .fan-card {
+                font-size: 14px;
+                width: 150px;
+                margin-left: -75px;
+            }
+
+            .fan-card[data-pos="-2"] { transform: translateX(-95px) rotate(-10deg) scale(0.75); }
+            .fan-card[data-pos="-1"] { transform: translateX(-48px) rotate(-6deg) scale(0.88); }
+            .fan-card[data-pos="0"]  { transform: translateX(0) rotate(0deg) scale(1); }
+            .fan-card[data-pos="1"]  { transform: translateX(48px) rotate(6deg) scale(0.88); }
+            .fan-card[data-pos="2"]  { transform: translateX(95px) rotate(10deg) scale(0.75); }
+
+            .thanks-panel {
+                padding: 30px 22px;
+                margin-left: 0;
+            }
+
+            .creator-showcase {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .creator-photo {
+                width: min(78vw, 300px);
+                height: min(78vw, 300px);
+            }
+
+            .thanks-title {
+                font-size: clamp(28px, 8vw, 42px);
+            }
+
+            .thanks-text {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="Main-Navbar" class="visible">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="Images/Banana_Peeled.png" alt="Logo Alpha Studios">
+                <h1>ALPHA STUDIOS</h1>
+            </div>
+
+            <nav class="navbar-links">
+                <a href="index.html">Inicio</a>
+                <a href="Equipo.html">Equipo</a>
+                <a href="Contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="thanks-journey">
+        <aside class="fan-wrap fan-persistent" aria-hidden="true">
+            <div class="fan-core">
+                <div class="fan-card" data-fan-card>INTRO</div>
+                <div class="fan-card" data-fan-card>BANANA</div>
+                <div class="fan-card" data-fan-card>TRAPS</div>
+                <div class="fan-card" data-fan-card>MONKEY</div>
+                <div class="fan-card" data-fan-card>TILESET</div>
+                <div class="fan-card" data-fan-card>UI</div>
+                <div class="fan-card" data-fan-card>FINAL</div>
+            </div>
+        </aside>
+
+        <section class="thanks-stage thanks-intro active" data-thanks-stage data-index="0" data-theme="intro">
+            <article class="thanks-panel">
+                <p class="thanks-kind">Official Credits</p>
+                <h1 class="thanks-title">Special Thanks to Asset Creators !!!</h1>
+                <p class="thanks-text">Aqui queremos dar las gracias de forma clara a la gente que compartio recursos y nos ayudo a que APE-ICTION se vea mucho mejor.</p>
+                <p class="thanks-scroll-hint">SCROLL PARA CONTINUAR <span>▼</span></p>
+            </article>
+        </section>
+
+        <section class="thanks-stage" data-thanks-stage data-index="1" data-theme="banana">
+            <article class="thanks-panel">
+                <p class="thanks-kind">Asset Recognition</p>
+                <h2 class="thanks-title">Banana Sprite</h2>
+                <p class="thanks-creator">Caz</p>
+                <p class="thanks-text">Gracias por este sprite. Nos ayudo mucho a darle personalidad al juego desde el principio.</p>
+                <div class="creator-showcase">
+                    <img class="creator-photo" src="Images/PFP's/Caz.png" alt="Asset preview de Caz">
+                    <div class="creator-meta">
+                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
+                        <p class="creator-source">Asset creator: Caz</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="thanks-stage" data-thanks-stage data-index="2" data-theme="traps">
+            <article class="thanks-panel">
+                <p class="thanks-kind">Asset Recognition</p>
+                <h2 class="thanks-title">Traps</h2>
+                <p class="thanks-creator">BDragon1727</p>
+                <p class="thanks-text">Tus trampas nos vinieron genial para hacer el gameplay mas entretenido y que cada zona tenga mas reto.</p>
+                <div class="creator-showcase">
+                    <img class="creator-photo" src="Images/PFP's/dragon.png" alt="Asset preview de BDragon1727">
+                    <div class="creator-meta">
+                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
+                        <p class="creator-source">Asset creator: BDragon1727</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="thanks-stage" data-thanks-stage data-index="3" data-theme="monkey">
+            <article class="thanks-panel">
+                <p class="thanks-kind">Asset Recognition</p>
+                <h2 class="thanks-title">Monkey Sprite</h2>
+                <p class="thanks-creator">Pixelsym</p>
+                <p class="thanks-text">Este sprite del mono encajo perfecto con la idea del juego y nos ayudo a darle mas vida al personaje principal.</p>
+                <div class="creator-showcase">
+                    <img class="creator-photo" src="Images/PFP's/Pyxelskym.png" alt="Asset preview de Pixelsym">
+                    <div class="creator-meta">
+                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
+                        <p class="creator-source">Asset creator: Pixelsym</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="thanks-stage" data-thanks-stage data-index="4" data-theme="tileset">
+            <article class="thanks-panel">
+                <p class="thanks-kind">Asset Recognition</p>
+                <h2 class="thanks-title">TileSet</h2>
+                <p class="thanks-creator">Anokolisa</p>
+                <p class="thanks-text">Tu tileset fue clave para montar escenarios con coherencia y que la exploracion se sienta natural.</p>
+                <div class="creator-showcase">
+                    <img class="creator-photo" src="Images/PFP's/Anakolista.png" alt="Asset preview de Anokolisa">
+                    <div class="creator-meta">
+                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
+                        <p class="creator-source">Asset creator: Anokolisa</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="thanks-stage" data-thanks-stage data-index="5" data-theme="ui">
+            <article class="thanks-panel">
+                <p class="thanks-kind">Asset Recognition</p>
+                <h2 class="thanks-title">UI Elements</h2>
+                <p class="thanks-creator">Kenney</p>
+                <p class="thanks-text">Los elementos de UI nos ayudaron a dejar una interfaz mucho mas clara y agradable de usar.</p>
+                <div class="creator-showcase">
+                    <img class="creator-photo" src="Images/PFP's/Kenney.png" alt="Asset preview de Kenney">
+                    <div class="creator-meta">
+                        <a class="thanks-link" href="https://www.kenney.nl" target="_blank" rel="noopener noreferrer">Available on www.Kenney.nl</a>
+                        <p class="creator-source">Asset creator: Kenney</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="thanks-stage thanks-final" data-thanks-stage data-index="6" data-theme="final">
+            <article class="thanks-panel">
+                <p class="thanks-kind">Final Tribute</p>
+                <h2 class="thanks-title">THANK YOU!</h2>
+                <p class="thanks-text">Gracias a todos por compartir vuestro trabajo. Nos habeis ayudado un monton a construir una version mejor de APE-ICTION.</p>
+                <p class="thanks-signature">— Alpha Studios Team</p>
+            </article>
+        </section>
+    </main>
+
+    <footer id="Main-Footer">
+        <div class="footer-content">
+            <h3>APE-ICTION</h3>
+            <p>Proyecto creado por ALPHA-STUDIOS</p>
+
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="Download.html">Descargar</a>
+                <a href="Contacto.html">Contacto</a>
+                <a href="Privacidad.html">Privacidad</a>
+            </div>
+
+            <p class="footer-copy">© 2026 APE-ICTION — Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        const thanksStages = Array.from(document.querySelectorAll("[data-thanks-stage]"));
+        const fanCards = Array.from(document.querySelectorAll("[data-fan-card]"));
+        const themeMap = {
+            intro: { base: "120, 255, 170", strong: "150, 255, 190" },
+            banana: { base: "255, 214, 90", strong: "255, 232, 145" },
+            traps: { base: "255, 120, 120", strong: "255, 165, 165" },
+            monkey: { base: "255, 166, 95", strong: "255, 200, 145" },
+            tileset: { base: "120, 210, 255", strong: "155, 226, 255" },
+            ui: { base: "190, 155, 255", strong: "220, 195, 255" },
+            final: { base: "120, 255, 170", strong: "160, 255, 200" }
+        };
+
+        function setTheme(themeKey) {
+            const rootStyle = document.documentElement.style;
+            const theme = themeMap[themeKey] || themeMap.intro;
+            rootStyle.setProperty("--creator-rgb", theme.base);
+            rootStyle.setProperty("--creator-strong-rgb", theme.strong);
+        }
+
+        function updateFan(activeIndex) {
+            fanCards.forEach((card, index) => {
+                const offset = index - activeIndex;
+                if (offset < -2 || offset > 2) {
+                    card.dataset.pos = "far";
+                } else {
+                    card.dataset.pos = String(offset);
+                }
+            });
+
+            thanksStages.forEach((stage, index) => {
+                stage.classList.toggle("active", index === activeIndex);
+            });
+
+            const activeStage = thanksStages[activeIndex];
+            const activeTheme = activeStage?.dataset.theme || "intro";
+            setTheme(activeTheme);
+        }
+
+        if (thanksStages.length) {
+            const thanksObserver = new IntersectionObserver(
+                (entries) => {
+                    const visible = entries
+                        .filter((entry) => entry.isIntersecting)
+                        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+                    if (!visible) return;
+                    const activeIndex = Number(visible.target.dataset.index || 0);
+                    updateFan(activeIndex);
+                },
+                { threshold: [0.4, 0.65, 0.9] }
+            );
+
+            thanksStages.forEach((stage) => thanksObserver.observe(stage));
+            updateFan(0);
+        }
+    </script>
+</body>
+</html>

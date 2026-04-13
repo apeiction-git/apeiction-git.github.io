@@ -58,6 +58,7 @@ INTRO IMPACTANTE
 #studio-intro {
     padding-top: 0 !important; /* ← evita franja */
     margin-top: 0 !important;
+    position: relative;
 
     background:
         radial-gradient(circle at center, rgba(80,255,120,0.18), rgba(0,0,0,0.75)),
@@ -70,6 +71,30 @@ INTRO IMPACTANTE
     box-shadow:
         0 0 40px rgba(80,255,120,0.25),
         0 12px 30px rgba(0,0,0,0.55);
+}
+
+.back-btn {
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    z-index: 5;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(120, 255, 160, 0.35);
+    background: rgba(0, 0, 0, 0.45);
+    color: #e9ffe4;
+    text-decoration: none;
+    font-family: 'Carter One', cursive;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(18, 52, 26, 0.75);
+    border-color: rgba(150, 255, 190, 0.55);
 }
 
 /* Panel central */
@@ -203,11 +228,17 @@ SLIDE 2×2 (CONTACTO)
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    position: relative;
 
     background: radial-gradient(circle at center,
         rgba(80,255,120,0.18),
         rgba(0,0,0,0.75)
     );
+}
+
+#contact-slide .back-btn {
+    top: 26px;
+    left: 26px;
 }
 
 /* Resetear zoom y panel */
