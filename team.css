@@ -1,0 +1,278 @@
+/* ===========================
+ESTILO GLOBAL
+   =========================== */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0b2e13, #1a4d22, #0f3a18);
+    padding-top: 0 !important; /* ← evita la franja arriba */
+}
+
+/* Cada pantalla */
+.slide {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 40px;
+
+    color: #e9ffe4;
+    font-family: 'Cinzel', serif;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Animación de zoom global */
+.slide-content {
+    transform: scale(0.55);
+    opacity: 0.1;
+    transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 1.8s ease;
+}
+
+.slide.active .slide-content {
+    transform: scale(1.15);
+    opacity: 1;
+}
+
+.slide.active .slide-content {
+    animation: settleZoom 0.6s ease forwards 1.8s;
+}
+
+@keyframes settleZoom {
+    from { transform: scale(1.15); }
+    to   { transform: scale(1); }
+}
+
+/* ===========================
+INTRO IMPACTANTE
+   =========================== */
+
+#studio-intro {
+    padding-top: 0 !important; /* ← evita franja */
+    margin-top: 0 !important;
+
+    background:
+        radial-gradient(circle at center, rgba(80,255,120,0.18), rgba(0,0,0,0.75)),
+        url("Images/jungle-texture.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+
+    border: 2px solid rgba(80,255,120,0.25);
+    box-shadow:
+        0 0 40px rgba(80,255,120,0.25),
+        0 12px 30px rgba(0,0,0,0.55);
+}
+
+/* Panel central */
+#studio-intro .slide-content {
+    background: rgba(0,0,0,0.45);
+    padding: 60px 90px;
+    border-radius: 26px;
+    border: 2px solid rgba(80,255,120,0.25);
+    box-shadow:
+        0 0 30px rgba(80,255,120,0.25),
+        0 12px 26px rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+
+    margin-top: 0 !important; /* ← evita hueco */
+}
+
+/* Título */
+#studio-intro h1 {
+    font-size: 70px;
+    letter-spacing: 4px;
+    text-shadow:
+        0 0 20px rgba(80,255,120,0.45),
+        0 0 40px rgba(80,255,120,0.25),
+        0 4px 10px rgba(0,0,0,0.75);
+}
+
+/* Subtítulo */
+#studio-intro p {
+    font-size: 24px;
+    opacity: 0.9;
+}
+
+/* Animación exclusiva */
+#studio-intro .slide-content {
+    animation: introFade 1.8s ease forwards;
+}
+
+@keyframes introFade {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===========================
+PERFILES INDIVIDUALES
+=========================== */
+
+.profile-panel {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 50px 70px;
+    border-radius: 26px;
+    border: 2px solid rgba(80,255,120,0.15);
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.55),
+        0 0 40px rgba(80,255,120,0.15);
+    backdrop-filter: blur(6px);
+
+    background-image: url("Images/jungle-texture.png");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Nombre del participante (slide individual) */
+.profile-panel h2 {
+    font-size: 40px !important;   /* antes era ~32px */
+    letter-spacing: 2px;
+}
+
+/* Rol del participante */
+.profile-panel p {
+    font-size: 24px !important;   /* antes era ~20px */
+    opacity: 0.95;
+}
+
+
+/* Líneas luminosas */
+.panel-lines {
+    width: 80%;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, transparent, #50ff78, transparent);
+    opacity: 0.8;
+}
+
+.top-line { margin-bottom: 10px; }
+.bottom-line { margin-top: 10px; }
+
+/* Foto grande */
+.profile-photo {
+    width: 380px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 22px;
+    border: 4px solid rgba(120, 255, 160, 0.35);
+    box-shadow:
+        0 0 22px rgba(80, 255, 120, 0.35),
+        0 12px 28px rgba(0,0,0,0.65),
+        inset 0 0 18px rgba(80,255,120,0.25);
+    transform: perspective(900px) rotateX(4deg) scale(0.95);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.9s ease;
+}
+
+.profile-photo:hover {
+    transform: perspective(900px) rotateX(0deg) scale(1.08);
+    box-shadow:
+        0 0 32px rgba(120, 255, 160, 0.55),
+        0 18px 36px rgba(0,0,0,0.75),
+        inset 0 0 22px rgba(120,255,160,0.25);
+}
+
+/* Ajuste de margen superior en perfiles */
+#team-section .team-member .slide-content {
+    margin-top: -40px !important;
+}
+
+#team-section .team-member.slide {
+    padding-top: 10px !important;
+}
+
+/* ===========================
+SLIDE 2×2 (CONTACTO)
+=========================== */
+
+#contact-slide {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    background: radial-gradient(circle at center,
+        rgba(80,255,120,0.18),
+        rgba(0,0,0,0.75)
+    );
+}
+
+/* Resetear zoom y panel */
+#contact-slide .slide-content {
+    transform: none !important;
+    opacity: 1 !important;
+    animation: none !important;
+
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Grid 2×2 */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjetas */
+.member-card {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(80, 255, 120, 0.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    text-align: center;
+    backdrop-filter: blur(4px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.member-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+}
+
+/* Fotos pequeñas */
+.member-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+
+/* Texto */
+.member-card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #d9ffd0;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.contact-item {
+    font-family: 'Cinzel', serif;
+    color: #e9ffe4;
+    margin: 4px 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+}
