@@ -222,19 +222,35 @@
     </footer>
 
     <script src="scripts.js"></script>
-    <script>
-        function sendMail(event) {
-            event.preventDefault();
-        
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-        
-            const mailto = `mailto:davidrojasherreros.2007@gmail.com?subject=Mensaje%20de%20${encodeURIComponent(name)}&body=Correo:%20${encodeURIComponent(email)}%0A%0AMensaje:%0A${encodeURIComponent(message)}`;
-        
-            window.location.href = mailto;
-        }
-        </script>
+
+<!-- SDK de EmailJS -->
+<script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+
+<script>
+    emailjs.init("2RdQBo7xv-DeGhqxm"); // tu Public Key real
+
+    function sendMail(event) {
+        event.preventDefault();
+
+        const params = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+
+        emailjs.send("service_l3t7btn", "template_wflae11", params)
+            .then(() => {
+                alert("Mensaje enviado correctamente.");
+            })
+            .catch((error) => {
+                alert("Hubo un error al enviar el mensaje.");
+                console.error(error);
+            });
+    }
+</script>
+
+
+
         
 </body>
 </html>
