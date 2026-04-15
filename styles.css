@@ -295,6 +295,19 @@ html::after {
     transform: translateY(-4px);
 }
 
+.glow-title {
+    transition: text-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.glow-title:hover {
+    text-shadow:
+        0 0 18px rgba(120,255,160,0.45),
+        0 0 32px rgba(80,255,120,0.35),
+        0 0 50px rgba(50,255,100,0.25);
+    transform: translateY(-4px);
+}
+
+
 
 #Main-Logo {
     width: 100%;
@@ -356,6 +369,67 @@ html::after {
 
     transform: translateY(-4px);
 }
+.jungle-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* EFECTO HOVER MEJORADO */
+.jungle-btn:hover {
+    background: linear-gradient(180deg, #57a84a 0%, #3b7a31 100%);
+    border-color: #2d5c23;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.55),
+        0 0 18px rgba(120, 255, 160, 0.35),
+        inset 0 2px 6px rgba(255, 255, 255, 0.25);
+}
+
+/* BRILLO DESLIZANTE */
+.jungle-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.25) 45%,
+        transparent 90%
+    );
+    transform: translateX(-120%) skewX(-20deg);
+    transition: transform 0.6s ease;
+    z-index: -1;
+}
+
+.jungle-btn:hover::before {
+    transform: translateX(120%) skewX(-20deg);
+}
+
+/* BORDE REACTIVO */
+
+.jungle-btn:active::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(120,255,160,0.35) 0%, transparent 70%);
+    transform: scale(0);
+    animation: ripple 0.45s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+
+.jungle-btn:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
 
 /* CLICK */
 .jungle-btn:active {
@@ -364,6 +438,7 @@ html::after {
         0 3px 8px rgba(0, 0, 0, 0.4),
         inset 0 2px 5px rgba(0, 0, 0, 0.4);
 }
+
 
 
 /* SUBTÍTULO PROFESIONAL */
@@ -535,6 +610,12 @@ html::after {
     text-shadow: 0 0 12px rgba(80,255,120,0.25), 0 1px 3px rgba(0,0,0,0.45);
     animation: resumeLineIn 0.75s ease forwards, pulseHighlight 2.4s ease-in-out 1.2s infinite;
 }
+
+.live-border {
+    position: relative;
+}
+
+
 
 @keyframes resumeLineIn {
     from {
@@ -1081,4 +1162,13 @@ html::after {
     }
 }
 
+
+body::after {
+    /* lo que ya tienes */
+    transition: background-position 0.15s ease-out;
+}
+
+body:hover::after {
+    background-position: calc(var(--mx) * 1px) calc(var(--my) * 1px);
+}
 

@@ -174,3 +174,8 @@ if (revealElements.length) {
 
     revealElements.forEach((element) => revealObserver.observe(element));
 }
+
+document.addEventListener("mousemove", e => {
+    document.body.style.setProperty("--mx", e.clientX / 20);
+    document.body.style.setProperty("--my", e.clientY / 20);
+});
