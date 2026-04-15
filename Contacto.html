@@ -227,7 +227,7 @@
 <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
 
 <script>
-    emailjs.init("2RdQBo7xv-DeGhqxm"); // tu Public Key real
+    emailjs.init("2RdQBo7xv-DeGhqxm");
 
     function sendMail(event) {
         event.preventDefault();
@@ -240,14 +240,21 @@
 
         emailjs.send("service_l3t7btn", "template_wflae11", params)
             .then(() => {
-                alert("Mensaje enviado correctamente.");
+                const box = document.getElementById("send-success");
+                box.style.display = "block";
+                box.textContent = "Mensaje enviado correctamente. Gracias por contactarnos.";
+
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
             })
             .catch((error) => {
-                alert("Hubo un error al enviar el mensaje.");
                 console.error(error);
+                alert("Hubo un error al enviar el mensaje.");
             });
     }
 </script>
+
 
 
 
