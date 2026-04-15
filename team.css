@@ -307,3 +307,22 @@ SLIDE 2×2 (CONTACTO)
     margin: 4px 0;
     text-shadow: 0 1px 3px rgba(0,0,0,0.45);
 }
+
+.contact-item img
+{
+    height: 50px;
+    width: 50px;
+}
+
+.contact-item-2 {
+    font-family: 'Cinzel', serif;
+    color: #e9ffe4;
+    margin: 4px 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+}
+
+.contact-item-2 img
+{
+    height: 50px;
+    width: 50px;
+}
