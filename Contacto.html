@@ -178,29 +178,25 @@
             <p class="contact-subtitle">ENVIA TU MENSAJE A ALPHA STUDIOS</p>
             <div id="send-success" class="send-success">Mensaje enviado correctamente. Gracias por contactarnos.</div>
 
-            <form class="contact-form" action="https://formsubmit.co/apeiction@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde APE-ICTION">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://apeiction-git.github.io/Contacto.html?enviado=1">
-
+            <form class="contact-form" onsubmit="sendMail(event)">
                 <label for="name">Nombre</label>
-                <input id="name" name="nombre" type="text" placeholder="Tu nombre" required>
-
+                <input id="name" type="text" placeholder="Tu nombre" required>
+            
                 <label for="email">Correo electrónico</label>
-                <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required>
-
+                <input id="email" type="email" placeholder="tucorreo@ejemplo.com" required>
+            
                 <label for="message">Mensaje</label>
-                <textarea id="message" name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
-
+                <textarea id="message" placeholder="Escribe tu mensaje..." required></textarea>
+            
                 <p class="contact-note">
                     Al enviar, aceptas que usemos tus datos para responder tu consulta.
                 </p>
-
+            
                 <div class="contact-actions">
                     <button class="jungle-btn" type="submit">ENVIAR MENSAJE</button>
                 </div>
             </form>
+            
 
             <div class="direct-mail">
                 También puedes escribirnos directamente a
@@ -227,11 +223,18 @@
 
     <script src="scripts.js"></script>
     <script>
-        const params = new URLSearchParams(window.location.search);
-        if (params.get("enviado") === "1") {
-            const successBox = document.getElementById("send-success");
-            if (successBox) successBox.style.display = "block";
+        function sendMail(event) {
+            event.preventDefault();
+        
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+        
+            const mailto = `mailto:davidrojasherreros.2007@gmail.com?subject=Mensaje%20de%20${encodeURIComponent(name)}&body=Correo:%20${encodeURIComponent(email)}%0A%0AMensaje:%0A${encodeURIComponent(message)}`;
+        
+            window.location.href = mailto;
         }
-    </script>
+        </script>
+        
 </body>
 </html>
