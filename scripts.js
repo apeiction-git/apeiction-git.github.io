@@ -176,6 +176,12 @@ if (revealElements.length) {
 }
 
 document.addEventListener("mousemove", e => {
-    document.body.style.setProperty("--mx", e.clientX / 20);
-    document.body.style.setProperty("--my", e.clientY / 20);
+    const p = document.createElement("div");
+    p.className = "cursor-particle";
+    p.style.left = e.clientX + "px";
+    p.style.top = e.clientY + "px";
+    document.body.appendChild(p);
+
+    setTimeout(() => p.remove(), 600);
 });
+

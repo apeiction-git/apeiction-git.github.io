@@ -1163,12 +1163,27 @@ html::after {
 }
 
 
-body::after {
-    /* lo que ya tienes */
-    transition: background-position 0.15s ease-out;
+.cursor-particle {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(120,255,160,0.8), rgba(120,255,160,0.1));
+    filter: blur(2px);
+    animation: particleFade 0.6s ease-out forwards;
+    z-index: 9999;
 }
 
-body:hover::after {
-    background-position: calc(var(--mx) * 1px) calc(var(--my) * 1px);
+@keyframes particleFade {
+    0% {
+        transform: scale(0.4);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
 }
+
 
