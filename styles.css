@@ -1,10 +1,15 @@
+html, body, *, *::before, *::after,
+*:hover, *:active, *:focus, *:focus-visible {
+    cursor: none !important;
+}
+
 body 
 {
     margin: 0;
     background:
-        radial-gradient(circle at 14% 10%, rgba(120, 255, 160, 0.2), transparent 36%),
-        radial-gradient(circle at 88% 18%, rgba(50, 205, 120, 0.17), transparent 34%),
-        radial-gradient(circle at 50% 120%, rgba(70, 230, 130, 0.12), transparent 42%),
+        radial-gradient(circle at 14% 10%, rgba(255, 230, 110, 0.18), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(255, 205, 80, 0.14), transparent 30%),
+        radial-gradient(circle at 50% 120%, rgba(255, 245, 170, 0.10), transparent 40%),
         linear-gradient(180deg, #0b2e13, #1a4d22, #0f3a18);
     background-size: 160% 160%, 145% 145%, 170% 170%, 100% 100%;
     animation: gradientWaves 46s ease-in-out infinite alternate;
@@ -21,10 +26,11 @@ body::before {
     pointer-events: none;
     z-index: -1;
     background:
-        radial-gradient(circle at 25% 30%, rgba(140, 255, 175, 0.14), transparent 42%),
-        radial-gradient(circle at 75% 70%, rgba(90, 235, 150, 0.12), transparent 40%),
-        radial-gradient(circle at center, transparent 56%, rgba(0, 0, 0, 0.3) 100%);
-    opacity: 0.85;
+        radial-gradient(circle at 20% 28%, rgba(255, 235, 120, 0.22), transparent 42%),
+        radial-gradient(circle at 80% 18%, rgba(255, 210, 85, 0.15), transparent 32%),
+        radial-gradient(circle at 50% 70%, rgba(255, 240, 170, 0.10), transparent 38%),
+        radial-gradient(circle at center, transparent 56%, rgba(0, 0, 0, 0.28) 100%);
+    opacity: 0.88;
     animation: ambientShift 58s ease-in-out infinite alternate;
 }
 
@@ -47,9 +53,19 @@ body::after {
             rgba(255, 255, 255, 0.015) 2px,
             transparent 2px,
             transparent 18px
-        );
-    opacity: 0.58;
-    animation: vignettePulse 12s ease-in-out infinite;
+        ),
+        repeating-radial-gradient(circle, rgba(255, 255, 255, 0.16) 0px, rgba(255, 255, 255, 0) 1px, transparent 1px, transparent 24px),
+        repeating-radial-gradient(circle, rgba(255, 255, 255, 0.12) 0px, rgba(255, 255, 255, 0) 1px, transparent 1px, transparent 20px),
+        radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.18) 0.6px, transparent 1.1px),
+        radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.14) 0.55px, transparent 1px),
+        radial-gradient(circle at 55% 35%, rgba(255, 255, 255, 0.12) 0.5px, transparent 0.95px),
+        radial-gradient(circle at 35% 78%, rgba(255, 255, 255, 0.10) 0.45px, transparent 0.9px),
+        radial-gradient(circle at 63% 83%, rgba(255, 255, 255, 0.08) 0.4px, transparent 0.85px);
+    background-size: 100% 100%, 100% 100%, 90px 90px, 140px 140px, 120px 120px, 110px 110px, 100px 100px, 80px 80px, 70px 70px;
+    background-position: 0% 0%, 0% 0%, 0% 0%, 40px 60px, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    background-repeat: no-repeat, no-repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    opacity: 0.72;
+    animation: vignettePulse 12s ease-in-out infinite, backgroundDrift 42s linear infinite, starTwinkle 24s ease-in-out infinite;
 }
 
 /* Relleno lateral para evitar vacio visual */
@@ -133,6 +149,27 @@ html::after {
     50% {
         transform: scale(1.06);
         opacity: 0.82;
+    }
+}
+
+@keyframes backgroundDrift {
+    0% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+    50% {
+        background-position: 10% 6%, -8% 9%, 28px 18px, -26px 22px, 20px -16px, 18px 12px, -22px 16px, 20px -12px, -14px 22px;
+    }
+    100% {
+        background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 0.62;
+    }
+    50% {
+        opacity: 0.72;
     }
 }
 
@@ -355,7 +392,7 @@ html::after {
     letter-spacing: 2px;
 
     transition: all 0.25s ease;
-    cursor: pointer;
+    cursor: none;
 }
 
 /* HOVER */
@@ -773,7 +810,7 @@ html::after {
     object-fit: cover;
     display: block;
     filter: saturate(1.06) contrast(1.02);
-    cursor: zoom-in;
+    cursor: none;
 }
 
 .gallery-nav {
@@ -789,7 +826,7 @@ html::after {
     color: #e9ffe4;
     font-size: 34px;
     line-height: 1;
-    cursor: pointer;
+    cursor: none;
     z-index: 4;
     display: grid;
     place-items: center;
@@ -822,7 +859,7 @@ html::after {
     border-radius: 999px;
     border: none;
     background: rgba(233, 255, 228, 0.38);
-    cursor: pointer;
+    cursor: none;
     transition: transform 0.25s ease, background 0.25s ease;
 }
 
@@ -861,7 +898,7 @@ html::after {
     border: 1px solid rgba(80, 255, 120, 0.35);
     background: rgba(0, 0, 0, 0.6);
     color: #e9ffe4;
-    cursor: pointer;
+    cursor: none;
 }
 
 .lightbox-close {
@@ -1163,27 +1200,218 @@ html::after {
 }
 
 
+/* PARTICLE SYSTEM - Variaciones de partículas */
 .cursor-particle {
     position: fixed;
-    width: 14px;
-    height: 14px;
     pointer-events: none;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(120,255,160,0.8), rgba(120,255,160,0.1));
-    filter: blur(2px);
-    animation: particleFade 0.6s ease-out forwards;
     z-index: 9999;
+    will-change: transform, opacity;
 }
 
-@keyframes particleFade {
+/* Tamaño pequeño */
+.cursor-particle.size-sm {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, rgba(255,220,100,0.9), rgba(255,220,100,0.2));
+    filter: blur(1px);
+    animation: particleFadeSm 0.5s ease-out forwards;
+    box-shadow: 0 0 8px rgba(255,220,100,0.6);
+}
+
+/* Tamaño medio */
+.cursor-particle.size-md {
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle, rgba(255,200,80,0.85), rgba(255,200,80,0.1));
+    filter: blur(1.5px);
+    animation: particleFadeMd 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    box-shadow: 0 0 12px rgba(255,200,80,0.7), inset 0 0 6px rgba(255,255,255,0.3);
+}
+
+/* Tamaño grande */
+.cursor-particle.size-lg {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 35% 35%, rgba(255,220,100,0.4), rgba(255,180,50,0.8), rgba(255,220,100,0.1));
+    filter: blur(2.5px);
+    animation: particleFadeLg 0.75s ease-out forwards;
+    box-shadow: 0 0 16px rgba(255,200,80,0.6);
+}
+
+/* Color variante 1 - Amarillo brillante */
+.cursor-particle.color-1 {
+    background: radial-gradient(circle, rgba(255,230,120,0.8), rgba(255,230,120,0.1));
+    box-shadow: 0 0 10px rgba(255,230,120,0.7);
+}
+
+/* Color variante 2 - Amarillo claro */
+.cursor-particle.color-2 {
+    background: radial-gradient(circle, rgba(255,240,150,0.7), rgba(255,240,150,0.05));
+    box-shadow: 0 0 12px rgba(255,240,150,0.5);
+}
+
+/* Animación pequeña - Fade rápido */
+@keyframes particleFadeSm {
     0% {
-        transform: scale(0.4);
+        transform: translate(0, 0) scale(0.2) rotate(0deg);
+        opacity: 1;
+    }
+    40% {
         opacity: 1;
     }
     100% {
-        transform: scale(1.8);
+        transform: translate(var(--tx, 12px), var(--ty, -12px)) scale(1.2) rotate(180deg);
         opacity: 0;
     }
+}
+
+/* Animación media */
+@keyframes particleFadeMd {
+    0% {
+        transform: translate(0, 0) scale(0.4) rotate(0deg);
+        opacity: 1;
+        filter: blur(1.5px) brightness(1.2);
+    }
+    50% {
+        opacity: 0.8;
+        filter: blur(1.5px) brightness(1);
+    }
+    100% {
+        transform: translate(var(--tx, 18px), var(--ty, -18px)) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Animación grande - Movimiento más dramático */
+@keyframes particleFadeLg {
+    0% {
+        transform: translate(0, 0) scale(0.3) rotate(-45deg);
+        opacity: 1;
+    }
+    60% {
+        opacity: 0.6;
+        filter: blur(2px);
+    }
+    100% {
+        transform: translate(var(--tx, 24px), var(--ty, -24px)) scale(2) rotate(405deg);
+        opacity: 0;
+        filter: blur(3px);
+    }
+}
+
+/* Efecto de burst rápido */
+@keyframes particleBurst {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx, 8px), var(--ty, 8px)) scale(0.1) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* CUSTOM CURSOR GLOW */
+.cursor-glow {
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+    z-index: 10000;
+    will-change: left, top, width, height;
+    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    transition: width 0.2s ease, height 0.2s ease;
+}
+
+.cursor-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 220, 100, 0.8);
+    background: radial-gradient(circle, rgba(255, 220, 100, 0.3), transparent 70%);
+    box-shadow: 
+        0 0 12px rgba(255, 220, 100, 0.6),
+        0 0 24px rgba(255, 200, 80, 0.4),
+        inset 0 0 8px rgba(255, 220, 100, 0.2);
+    transition: all 0.2s ease;
+}
+
+.cursor-glow::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #FFD964;
+    box-shadow: 0 0 6px rgba(255, 220, 100, 0.8);
+    transition: width 0.2s ease, height 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Cursor glow cuando está sobre elemento clickable */
+.cursor-glow.active::before {
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(255, 200, 50, 0.9);
+    background: radial-gradient(circle, rgba(255, 220, 100, 0.5), transparent 70%);
+    box-shadow: 
+        0 0 16px rgba(255, 200, 50, 0.8),
+        0 0 32px rgba(255, 180, 30, 0.6),
+        inset 0 0 12px rgba(255, 220, 100, 0.3);
+}
+
+.cursor-glow.active::after {
+    width: 8px;
+    height: 8px;
+    box-shadow: 0 0 10px rgba(255, 200, 50, 1);
+}
+
+.cursor-glow.clicking::before {
+    transform: scale(0.92);
+    box-shadow:
+        0 0 18px rgba(255, 200, 50, 0.9),
+        0 0 36px rgba(255, 180, 30, 0.7),
+        inset 0 0 14px rgba(255, 220, 100, 0.35);
+}
+
+.cursor-glow.clicking::after {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 200, 50, 1);
+}
+
+.cursor-click-pulse {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 220, 100, 0.9);
+    pointer-events: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+    animation: clickPulse 0.45s ease-out forwards;
+    z-index: 10001;
+}
+
+@keyframes clickPulse {
+    0% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.4);
+    }
+}
+
+/* Cursor normal en body */
+body * {
+    cursor: inherit;
 }
 
 

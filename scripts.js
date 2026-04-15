@@ -175,13 +175,118 @@ if (revealElements.length) {
     revealElements.forEach((element) => revealObserver.observe(element));
 }
 
-document.addEventListener("mousemove", e => {
-    const p = document.createElement("div");
-    p.className = "cursor-particle";
-    p.style.left = e.clientX + "px";
-    p.style.top = e.clientY + "px";
-    document.body.appendChild(p);
+// Particle system mejorado
+const particleConfig = {
+    sizes: ['size-sm', 'size-md', 'size-lg'],
+    colors: ['color-1', 'color-2'],
+    timings: [500, 650, 750]
+};
 
-    setTimeout(() => p.remove(), 600);
+let lastParticleTime = 0;
+const particleThrottle = 20; // ms entre partículas
+
+document.addEventListener("mousemove", e => {
+    const now = Date.now();
+    
+    // Throttle para optimizar rendimiento
+    if (now - lastParticleTime < particleThrottle) {
+        return;
+    }
+    lastParticleTime = now;
+    
+    // Crear 1-3 partículas por movimiento del cursor
+    const particleCount = Math.random() > 0.7 ? 2 : 1;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement("div");
+        p.className = "cursor-particle";
+        
+        // Seleccionar tamaño y color aleatorio
+        const sizeClass = particleConfig.sizes[Math.floor(Math.random() * particleConfig.sizes.length)];
+        const colorClass = particleConfig.colors[Math.floor(Math.random() * particleConfig.colors.length)];
+        const timing = particleConfig.timings[Math.floor(Math.random() * particleConfig.timings.length)];
+        
+        p.classList.add(sizeClass, colorClass);
+        
+        // Offset ligeramente para no estar exactamente en el cursor
+        const offsetX = (Math.random() - 0.5) * 8;
+        const offsetY = (Math.random() - 0.5) * 8;
+        
+        p.style.left = (e.clientX + offsetX) + "px";
+        p.style.top = (e.clientY + offsetY) + "px";
+        
+        // Variables CSS para las animaciones
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 15 + Math.random() * 20;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        p.style.setProperty('--tx', tx + 'px');
+        p.style.setProperty('--ty', ty + 'px');
+        
+        document.body.appendChild(p);
+        
+        // Remover después de completar la animación
+        setTimeout(() => p.remove(), timing);
+    }
 });
+
+// CURSOR GLOW
+const cursorGlow = document.createElement("div");
+cursorGlow.className = "cursor-glow";
+document.body.appendChild(cursorGlow);
+
+let mouseX = 0;
+let mouseY = 0;
+let glowX = 0;
+let glowY = 0;
+
+// Elementos que son clickables
+const clickableSelectors = ['a', 'button', '[role="button"]', '[onclick]', 'input', 'textarea', 'select', '.jungle-btn', '.gallery-nav', '.gallery-dot', '.lightbox-close', '.lightbox-nav'];
+
+document.addEventListener("mousemove", e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Detectar si estamos sobre un elemento clickable
+    const element = document.elementFromPoint(mouseX, mouseY);
+    const isClickable = clickableSelectors.some(selector => element?.matches(selector) || element?.closest(selector));
+    
+    if (isClickable) {
+        cursorGlow.classList.add("active");
+    } else {
+        cursorGlow.classList.remove("active");
+    }
+});
+
+document.addEventListener("mousedown", e => {
+    cursorGlow.classList.add("clicking");
+    createClickPulse(e.clientX, e.clientY);
+});
+
+document.addEventListener("mouseup", () => {
+    cursorGlow.classList.remove("clicking");
+});
+
+function createClickPulse(x, y) {
+    const pulse = document.createElement("div");
+    pulse.className = "cursor-click-pulse";
+    pulse.style.left = `${x}px`;
+    pulse.style.top = `${y}px`;
+    document.body.appendChild(pulse);
+    setTimeout(() => pulse.remove(), 450);
+}
+
+function updateGlowCursor() {
+    // Suavizar movimiento del glow
+    glowX += (mouseX - glowX) * 0.2;
+    glowY += (mouseY - glowY) * 0.2;
+    
+    cursorGlow.style.left = glowX + 'px';
+    cursorGlow.style.top = glowY + 'px';
+    
+    requestAnimationFrame(updateGlowCursor);
+}
+
+updateGlowCursor();
 
