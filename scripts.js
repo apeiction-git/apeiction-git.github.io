@@ -187,45 +187,45 @@ const particleThrottle = 20; // ms entre partículas
 
 document.addEventListener("mousemove", e => {
     const now = Date.now();
-    
+
     // Throttle para optimizar rendimiento
     if (now - lastParticleTime < particleThrottle) {
         return;
     }
     lastParticleTime = now;
-    
+
     // Crear 1-3 partículas por movimiento del cursor
     const particleCount = Math.random() > 0.7 ? 2 : 1;
-    
+
     for (let i = 0; i < particleCount; i++) {
         const p = document.createElement("div");
         p.className = "cursor-particle";
-        
+
         // Seleccionar tamaño y color aleatorio
         const sizeClass = particleConfig.sizes[Math.floor(Math.random() * particleConfig.sizes.length)];
         const colorClass = particleConfig.colors[Math.floor(Math.random() * particleConfig.colors.length)];
         const timing = particleConfig.timings[Math.floor(Math.random() * particleConfig.timings.length)];
-        
+
         p.classList.add(sizeClass, colorClass);
-        
+
         // Offset ligeramente para no estar exactamente en el cursor
         const offsetX = (Math.random() - 0.5) * 8;
         const offsetY = (Math.random() - 0.5) * 8;
-        
+
         p.style.left = (e.clientX + offsetX) + "px";
         p.style.top = (e.clientY + offsetY) + "px";
-        
+
         // Variables CSS para las animaciones
         const angle = Math.random() * Math.PI * 2;
         const distance = 15 + Math.random() * 20;
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
-        
+
         p.style.setProperty('--tx', tx + 'px');
         p.style.setProperty('--ty', ty + 'px');
-        
+
         document.body.appendChild(p);
-        
+
         // Remover después de completar la animación
         setTimeout(() => p.remove(), timing);
     }
@@ -247,11 +247,11 @@ const clickableSelectors = ['a', 'button', '[role="button"]', '[onclick]', 'inpu
 document.addEventListener("mousemove", e => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    
+
     // Detectar si estamos sobre un elemento clickable
     const element = document.elementFromPoint(mouseX, mouseY);
     const isClickable = clickableSelectors.some(selector => element?.matches(selector) || element?.closest(selector));
-    
+
     if (isClickable) {
         cursorGlow.classList.add("active");
     } else {
@@ -281,10 +281,10 @@ function updateGlowCursor() {
     // Suavizar movimiento del glow
     glowX += (mouseX - glowX) * 0.2;
     glowY += (mouseY - glowY) * 0.2;
-    
+
     cursorGlow.style.left = glowX + 'px';
     cursorGlow.style.top = glowY + 'px';
-    
+
     requestAnimationFrame(updateGlowCursor);
 }
 

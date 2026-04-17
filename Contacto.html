@@ -227,22 +227,22 @@
             <form class="contact-form" onsubmit="sendMail(event)">
                 <label for="name">Nombre</label>
                 <input id="name" type="text" placeholder="Tu nombre" required>
-            
+
                 <label for="email">Correo electrónico</label>
                 <input id="email" type="email" placeholder="tucorreo@ejemplo.com" required>
-            
+
                 <label for="message">Mensaje</label>
                 <textarea id="message" placeholder="Escribe tu mensaje..." required></textarea>
-            
+
                 <p class="contact-note">
                     Al enviar, aceptas que usemos tus datos para responder tu consulta.
                 </p>
-            
+
                 <div class="contact-actions">
                     <button class="jungle-btn" type="submit">ENVIAR MENSAJE</button>
                 </div>
             </form>
-            
+
 
             <div class="direct-mail">
                 También puedes escribirnos directamente a
@@ -273,29 +273,29 @@
 
     <script>
         emailjs.init("2RdQBo7xv-DeGhqxm");
-    
+
         function sendMail(event) {
             event.preventDefault();
-    
+
             const btn = document.querySelector(".jungle-btn");
             const box = document.getElementById("send-success");
-    
+
             // Activar loader
             btn.classList.add("loading");
             btn.textContent = "Enviando...";
-    
+
             const params = {
                 name: document.getElementById("name").value,
                 email: document.getElementById("email").value,
                 message: document.getElementById("message").value
             };
-    
+
             emailjs.send("service_l3t7btn", "template_wflae11", params)
                 .then(() => {
                     // Mostrar mensaje de éxito
                     box.classList.add("show");
                     box.textContent = "Mensaje enviado correctamente. Gracias por contactarnos.";
-    
+
                     // Resetear formulario
                     document.getElementById("name").value = "";
                     document.getElementById("email").value = "";
