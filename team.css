@@ -213,8 +213,17 @@ PERFILES INDIVIDUALES
 
 /* Ajuste de margen superior en perfiles */
 #team-section .team-member .slide-content {
-    margin-top: -40px !important;
+    transform: scale(0.9) !important;
+    opacity: 0.9 !important;
 }
+
+
+.full-row {
+    grid-column: span 2;
+    justify-self: center;
+}
+
+
 
 #team-section .team-member.slide {
     padding-top: 10px !important;

@@ -3,14 +3,11 @@ let currentSlide = 0;
 let isScrolling = false;
 
 function goToSlide(index) {
-    if (index < 0 || index >= slides.length) return;
+    if (index < 0 || index > slides.length - 1) return;
 
     isScrolling = true;
 
-    // Quitar active de todas
     slides.forEach(s => s.classList.remove('active'));
-
-    // Activar la nueva
     slides[index].classList.add('active');
 
     currentSlide = index;
@@ -25,7 +22,6 @@ function goToSlide(index) {
     }, 900);
 }
 
-// Activar la primera pantalla al cargar
 slides[0].classList.add('active');
 
 window.addEventListener("wheel", (e) => {
