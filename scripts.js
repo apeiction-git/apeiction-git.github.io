@@ -1,23 +1,23 @@
+
 let lastScrollTop = 0;
 const navbar = document.getElementById("Main-Navbar");
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (!navbar) {
-        return;
-    }
+    if (!navbar) return;
 
-    if (currentScroll <= 50) {
-        // Mostrar navbar al estar arriba
+    if (currentScroll < lastScrollTop) {
+        // Usuario está subiendo → mostrar navbar
         navbar.classList.add("visible");
-    } else if (currentScroll > lastScrollTop) {
-        // Ocultar al bajar
+    } else {
+        // Usuario está bajando → ocultar navbar
         navbar.classList.remove("visible");
     }
 
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
+
 
 const galleryRoot = document.querySelector("[data-gallery]");
 

@@ -62,7 +62,6 @@ INTRO IMPACTANTE
 
     background:
         radial-gradient(circle at center, rgba(80,255,120,0.18), rgba(0,0,0,0.75)),
-        url("Images/jungle-texture.png");
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
