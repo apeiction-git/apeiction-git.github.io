@@ -300,11 +300,11 @@
                     document.getElementById("name").value = "";
                     document.getElementById("email").value = "";
                     document.getElementById("message").value = "";
-    
+
                     // Quitar loader
                     btn.classList.remove("loading");
                     btn.textContent = "ENVIAR MENSAJE";
-    
+
                     // Ocultar mensaje después de 4 segundos
                     setTimeout(() => {
                         box.classList.remove("show");
@@ -312,21 +312,21 @@
                 })
                 .catch((error) => {
                     console.error(error);
-    
+
                     box.classList.add("show");
                     box.style.background = "#b32626";
                     box.textContent = "Hubo un error al enviar el mensaje.";
-    
+
                     btn.classList.remove("loading");
                     btn.textContent = "ENVIAR MENSAJE";
-    
+
                     setTimeout(() => {
                         box.classList.remove("show");
                     }, 4000);
                 });
         }
     </script>
-    
+
 
 </body>
 </html>
