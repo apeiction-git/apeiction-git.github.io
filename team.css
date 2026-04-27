@@ -61,7 +61,7 @@ INTRO IMPACTANTE
     position: relative;
 
     background:
-        radial-gradient(circle at center, rgba(80,255,120,0.18), rgba(0,0,0,0.75)),
+        radial-gradient(circle at center, rgba(80,255,120,0.18), rgba(0,0,0,0.75));
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -264,15 +264,30 @@ SLIDE 2×2 (CONTACTO)
     padding: 0 !important;
 }
 
-/* Grid 2×2 */
+/* Grid 2×3 */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.top-left-space {
+    grid-column: 1; /* Se coloca en la columna central */
+}
+
+.empty-space {
+    grid-column: 2;
+}
+
+
+.top-right-space {
+    grid-column: 3; /* También en la fila 1, columna 3 */
+}
+
+
 
 /* Tarjetas */
 .member-card {
@@ -290,6 +305,12 @@ SLIDE 2×2 (CONTACTO)
     transform: scale(1.08);
     box-shadow: 0 12px 28px rgba(0,0,0,0.55);
 }
+
+.member-card.top-row {
+    grid-column: span 1;
+    justify-self: center;
+}
+
 
 /* Fotos pequeñas */
 .member-card img {
