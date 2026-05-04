@@ -287,7 +287,7 @@ SLIDE 2×2 (CONTACTO)
 
 .empty-space img
 {
-    width: 160px;      /* ajusta el tamaño del logo */
+    width: 400px;
     height: auto;
     opacity: 0.9;
     filter: drop-shadow(0 0 12px rgba(80,255,120,0.4));
