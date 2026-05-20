@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var m=window.matchMedia;if(m("(hover:hover) and (pointer:fine)").matches&&!m("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("custom-cursor");})();</script>
     <title>Equipo</title>
-    <style>html, body, *, *::before, *::after, :hover, :active, :focus, :focus-visible { cursor: none !important; }</style>
-
     <link rel="stylesheet" href="team.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="Images/Banana_Peeled.png">
@@ -23,8 +22,79 @@
         </div>
     </section>
 
+    <!-- EQUIPO COMPLETO (primero el grid) -->
+    <div class="team-member slide" id="contact-slide">
+        <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
+
+        <div class="slide-content team-grid">
+            <h2 class="team-grid-title">Nuestro equipo</h2>
+
+            <div class="member-card top-left-space">
+                <img src="Images/PFP's/ivanpfp.png" alt="Participante 1">
+                <h3>Ivan Santos</h3>
+                <a class="contact-item-2" href="mailto:santospoloivan@gmail.com">
+                    <img src="Images/mailicon.png" alt="mail-logo">
+                </a>
+                <a class="contact-item" href="https://github.com/nomerobs">
+                    <img src="Images/gitlogog.png" alt="git-logo">
+                </a>
+            </div>
+
+            <div class="empty-space">
+                <img src="Images/Alpha_Game-logo.png" alt="LOGO_MONO">
+            </div>
+
+            <div class="member-card top-rigth-space">
+                <img src="Images/PFP's/pfpDavid.jpg" alt="Participante 2">
+                <h3>David Rojas</h3>
+                <a class="contact-item-2" href="mailto:davidrojas6971@gmail.com">
+                    <img src="Images/mailicon.png" alt="mail-logo">
+                </a>
+                <a class="contact-item" href="https://github.com/DavidR2007">
+                    <img src="Images/gitlogog.png" alt="git-logo">
+                </a>
+            </div>
+
+            <div class="member-card">
+                <img src="Images/PFP's/Eric.pfp.png" alt="Participante 3">
+                <h3>Eric Marchante</h3>
+                <a class="contact-item-2" href="mailto:ericmarchanterios@gmail.com">
+                    <img src="Images/mailicon.png" alt="mail-logo">
+                </a>
+                <a class="contact-item" href="https://github.com/EMR89972">
+                    <img src="Images/gitlogog.png" alt="git-logo">
+                </a>
+            </div>
+
+            <div class="member-card">
+                <img src="Images/PFP's/Gerard.pfp.png" alt="Participante 4">
+                <h3>Gerard Bolet</h3>
+                <a class="contact-item-2" href="mailto:gregorix.verif@gmail.com">
+                    <img src="Images/mailicon.png" alt="mail-logo">
+                </a>
+                <a class="contact-item" href="https://github.com/GerardBolet">
+                    <img src="Images/gitlogog.png" alt="git-logo">
+                </a>
+            </div>
+
+            <div class="member-card">
+                <img src="Images/PFP's/Nil.pfp.jpg" alt="Participante 5">
+                <h3>Nil Domingo</h3>
+                <a class="contact-item-2" href="mailto:nil.domingo.oriol@estudiant.enti.cat">
+                    <img src="Images/mailicon.png" alt="mail-logo">
+                </a>
+                <a class="contact-item" href="https://github.com/Zelkyu">
+                    <img src="Images/gitlogog.png" alt="git-logo">
+                </a>
+            </div>
+
+            <div class="member-card" style="opacity:0; pointer-events:none;"></div>
+        </div>
+    </div>
+
     <!-- PARTICIPANTE 1 -->
     <div class="team-member slide">
+        <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
         <div class="slide-content profile-panel">
             <div class="panel-lines top-line"></div>
             <img class="profile-photo" src="Images/PFP's/ivanpfp.png" alt="Participante 1">
@@ -36,6 +106,7 @@
 
     <!-- PARTICIPANTE 2 -->
     <div class="team-member slide">
+        <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
         <div class="slide-content profile-panel">
             <div class="panel-lines top-line"></div>
             <img class="profile-photo" src="Images/PFP's/pfpDavid.jpg" alt="Participante 2">
@@ -47,6 +118,7 @@
 
     <!-- PARTICIPANTE 3 -->
     <div class="team-member slide">
+        <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
         <div class="slide-content profile-panel">
             <div class="panel-lines top-line"></div>
             <img class="profile-photo" src="Images/PFP's/Gerard.pfp.png" alt="Participante 3">
@@ -58,6 +130,7 @@
 
     <!-- PARTICIPANTE 4 -->
     <div class="team-member slide">
+        <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
         <div class="slide-content profile-panel">
             <div class="panel-lines top-line"></div>
             <img class="profile-photo" src="Images/PFP's/Eric.pfp.png" alt="Participante 4">
@@ -69,93 +142,13 @@
 
     <!-- PARTICIPANTE 5 -->
     <div class="team-member slide">
+        <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
         <div class="slide-content profile-panel">
             <div class="panel-lines top-line"></div>
             <img class="profile-photo" src="Images/PFP's/Nil.pfp.jpg" alt="Participante 5">
             <h2>Nil Domingo</h2>
-            <p>Director Audiovisual · Artista </p>
+            <p>Director Audiovisual · Artista</p>
             <div class="panel-lines bottom-line"></div>
-        </div>
-    </div>
-
-<!-- SLIDE FINAL DE CONTACTO -->
-<div class="team-member slide" id="contact-slide">
-    <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
-
-    <div class="slide-content team-grid">
-
-        <!-- PARTICIPANTE 1 -->
-        <div class="member-card top-left-space">
-            <img src="Images/PFP's/ivanpfp.png" alt="Participante 1">
-            <h3>Ivan Santos</h3>
-            <a class="contact-item-2" href="mailto:santospoloivan@gmail.com">
-                <img src="Images/mailicon.png" alt="mail-logo">
-            </a>
-            <a class="contact-item" href="https://github.com/nomerobs">
-                <img src="Images/gitlogog.png" alt="git-logo">
-            </a>
-        </div>
-
-        <div class="empty-space">
-            <img src="Images/Alpha_Game-logo.png" alt="LOGO_MONO">
-        </div>
-
-        <!-- PARTICIPANTE 2 -->
-        <div class="member-card top-rigth-space">
-            <img src="Images/PFP's/pfpDavid.jpg" alt="Participante 2">
-            <h3>David Rojas</h3>
-            <a class="contact-item-2" href="mailto:davidrojas6971@gmail.com">
-                <img src="Images/mailicon.png" alt="mail-logo">
-            </a>
-            <a class="contact-item" href="https://github.com/DavidR2007">
-                <img src="Images/gitlogog.png" alt="git-logo">
-            </a>
-        </div>
-
-        <!-- PARTICIPANTE 3 -->
-        <div class="member-card">
-            <img src="Images/PFP's/Eric.pfp.png" alt="Participante 3">
-            <h3>Eric Marchante</h3>
-            <a class="contact-item-2" href="mailto:ericmarchanterios@gmail.com">
-                <img src="Images/mailicon.png" alt="mail-logo">
-            </a>
-            <a class="contact-item" href="https://github.com/EMR89972">
-                <img src="Images/gitlogog.png" alt="git-logo">
-            </a>
-        </div>
-
-        <!-- PARTICIPANTE 4 -->
-        <div class="member-card">
-            <img src="Images/PFP's/Gerard.pfp.png" alt="Participante 4">
-            <h3>Gerard Bolet</h3>
-            <a class="contact-item-2" href="mailto:gregorix.verif@gmail.com">
-                <img src="Images/mailicon.png" alt="mail-logo">
-            </a>
-            <a class="contact-item" href="https://github.com/GerardBolet">
-                <img src="Images/gitlogog.png" alt="git-logo">
-            </a>
-        </div>
-
-<!-- PARTICIPANTE 5 CENTRADO -->
-<div class="member-card">
-    <img src="Images/PFP's/Nil.pfp.jpg" alt="Participante 4">
-    <h3>Nil Domingo</h3>
-    <a class="contact-item-2" href="mailto:nil.domingo.oriol@estudiant.enti.cat">
-        <img src="Images/mailicon.png" alt="mail-logo">
-    </a>
-    <a class="contact-item" href="https://github.com/Zelkyu">
-        <img src="Images/gitlogog.png" alt="git-logo">
-    </a>
-</div>
-
-
-        <!-- CELDA VACÍA PARA COMPLETAR EL GRID -->
-        <div class="member-card" style="opacity:0; pointer-events:none;"></div>
-
-    </div>
-</div>
-
-
         </div>
     </div>
 

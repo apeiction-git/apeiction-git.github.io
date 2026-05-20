@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var m=window.matchMedia;if(m("(hover:hover) and (pointer:fine)").matches&&!m("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("custom-cursor");})();</script>
     <title>APE-ICTION | Special Thanks</title>
-    <style>html, body, *, *::before, *::after, :hover, :active, :focus, :focus-visible { cursor: none !important; }</style>
-
     <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
@@ -67,7 +66,7 @@
         }
 
         .thanks-journey {
-            margin-top: 88px;
+            margin-top: 96px;
             scroll-snap-type: y mandatory;
             position: relative;
             max-width: 1250px;
@@ -81,7 +80,12 @@
             scroll-snap-align: start;
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 34px 28px;
+        }
+
+        .thanks-stage:has(.thanks-panel--creator) {
+            padding: 28px 20px;
         }
 
         .fan-wrap {
@@ -155,13 +159,23 @@
                 linear-gradient(165deg, rgba(8, 28, 14, 0.92), rgba(12, 44, 20, 0.78));
             border: 1px solid rgba(var(--creator-strong-rgb), 0.24);
             box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
             overflow: hidden;
             transform: translateX(100px) rotateY(-18deg) scale(0.94);
             opacity: 0.18;
             transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.05s ease, box-shadow 0.7s ease, border-color 0.45s ease;
             max-width: 920px;
             margin-left: 18px;
+        }
+
+        .thanks-panel--creator {
+            padding: 0;
+            max-width: 640px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .thanks-stage.active .thanks-panel--creator {
+            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.58), 0 0 34px rgba(var(--creator-rgb), 0.22);
         }
 
         .thanks-panel > *:first-child {
@@ -244,44 +258,200 @@
             transform: translateX(4px);
         }
 
-        .creator-showcase {
-            margin-top: 28px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            padding-top: 10px;
+        /* ——— Tarjetas creador: split moderno (1080p-friendly) ——— */
+        .creator-card {
+            width: 100%;
+        }
+
+        .creator-card-inner {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            min-height: 300px;
+            max-height: 340px;
+            background: #07160c;
+        }
+
+        .thanks-stage[data-index="2"] .creator-card-inner,
+        .thanks-stage[data-index="4"] .creator-card-inner {
+            grid-template-columns: 1fr 200px;
+        }
+
+        .thanks-stage[data-index="2"] .creator-card-media,
+        .thanks-stage[data-index="4"] .creator-card-media {
+            order: 2;
+        }
+
+        .thanks-stage[data-index="2"] .creator-card-body,
+        .thanks-stage[data-index="4"] .creator-card-body {
+            order: 1;
+        }
+
+        .creator-card-media {
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid rgba(var(--creator-strong-rgb), 0.2);
+        }
+
+        .thanks-stage[data-index="2"] .creator-card-media,
+        .thanks-stage[data-index="4"] .creator-card-media {
+            border-right: none;
+            border-left: 1px solid rgba(var(--creator-strong-rgb), 0.2);
+        }
+
+        .creator-card-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 55%, rgba(7, 22, 12, 0.35) 100%);
+            pointer-events: none;
+        }
+
+        .thanks-stage[data-index="2"] .creator-card-media::after,
+        .thanks-stage[data-index="4"] .creator-card-media::after {
+            background: linear-gradient(270deg, transparent 55%, rgba(7, 22, 12, 0.35) 100%);
         }
 
         .creator-photo {
-            width: 220px;
-            height: 220px;
-            border-radius: 16px;
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
             object-fit: cover;
-            border: 3px solid rgba(var(--creator-strong-rgb), 0.36);
-            box-shadow: 0 0 18px rgba(var(--creator-rgb), 0.33), 0 12px 24px rgba(0, 0, 0, 0.5);
-            transform: perspective(900px) rotateX(4deg) scale(0.94);
-            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease;
+            object-position: center 18%;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+            filter: saturate(1.05);
         }
 
         .thanks-stage.active .creator-photo {
-            transform: perspective(900px) rotateX(0deg) scale(1);
+            transform: scale(1.02);
         }
 
-        .creator-meta {
-            min-width: 220px;
-            flex: 1;
+        .creator-card:hover .creator-photo {
+            transform: scale(1.05);
+            filter: saturate(1.12);
+        }
+
+        .creator-card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 2;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-family: 'Carter One', cursive;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #0a1f0e;
+            background: rgba(var(--creator-strong-rgb), 0.9);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        .creator-card-body {
+            padding: 28px 32px 28px 28px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            justify-content: center;
+            gap: 6px;
+            position: relative;
         }
 
-        .creator-source {
-            margin: 10px 0 0;
-            font-family: 'Cinzel', serif;
-            font-size: 15px;
-            color: #b9deb3;
-            opacity: 0.9;
+        .creator-card-body::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 18%;
+            bottom: 18%;
+            width: 3px;
+            border-radius: 3px;
+            background: linear-gradient(180deg, transparent, rgba(var(--creator-rgb), 0.8), transparent);
+            opacity: 0.7;
+        }
+
+        .thanks-stage[data-index="2"] .creator-card-body::before,
+        .thanks-stage[data-index="4"] .creator-card-body::before {
+            left: auto;
+            right: 0;
+        }
+
+        .creator-card-body .thanks-kind {
+            margin: 0;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            opacity: 0.85;
+        }
+
+        .creator-card-body .thanks-title {
+            margin: 4px 0 0;
+            font-size: 30px;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .creator-card-body .thanks-creator {
+            margin: 4px 0 0;
+            font-size: 22px;
+            color: rgba(var(--creator-strong-rgb), 1);
+        }
+
+        .creator-card-index {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 42px;
+            line-height: 1;
+            color: rgba(var(--creator-rgb), 0.12);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .thanks-stage[data-index="2"] .creator-card-index,
+        .thanks-stage[data-index="4"] .creator-card-index {
+            right: auto;
+            left: 18px;
+        }
+
+        .creator-card-cta {
+            margin-top: 16px;
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Carter One', cursive;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            color: #0a1f0e;
+            background: rgba(var(--creator-strong-rgb), 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+        }
+
+        .creator-card-cta:hover {
+            color: #061408;
+            transform: translateX(4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 16px rgba(var(--creator-rgb), 0.25);
+        }
+
+        .creator-card-cta-arrow {
+            font-size: 16px;
+            line-height: 1;
+            transition: transform 0.22s ease;
+        }
+
+        .creator-card-cta:hover .creator-card-cta-arrow {
+            transform: translateX(3px);
+        }
+
+        /* Ocultar títulos duplicados fuera de la tarjeta */
+        .thanks-panel--creator > .thanks-kind,
+        .thanks-panel--creator > .thanks-title,
+        .thanks-panel--creator > .thanks-creator {
+            display: none;
         }
 
         .thanks-edit-note {
@@ -344,6 +514,13 @@
             }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .thanks-stage.active .creator-photo,
+            .creator-card:hover .creator-photo {
+                transform: none !important;
+            }
+        }
+
         @media (max-width: 900px) {
             .thanks-journey {
                 margin-top: 126px;
@@ -385,14 +562,45 @@
                 margin-left: 0;
             }
 
-            .creator-showcase {
-                flex-direction: column;
-                align-items: flex-start;
+            .thanks-panel--creator {
+                max-width: 100%;
+            }
+
+            .creator-card-inner,
+            .thanks-stage[data-index="2"] .creator-card-inner,
+            .thanks-stage[data-index="4"] .creator-card-inner {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                max-height: none;
+            }
+
+            .creator-card-media,
+            .thanks-stage[data-index="2"] .creator-card-media,
+            .thanks-stage[data-index="4"] .creator-card-media {
+                order: 0;
+                border-right: none;
+                border-left: none;
+                border-bottom: 1px solid rgba(var(--creator-strong-rgb), 0.2);
+            }
+
+            .creator-card-body,
+            .thanks-stage[data-index="2"] .creator-card-body,
+            .thanks-stage[data-index="4"] .creator-card-body {
+                order: 0;
+                padding: 22px 20px 24px;
             }
 
             .creator-photo {
-                width: min(78vw, 300px);
-                height: min(78vw, 300px);
+                min-height: 200px;
+                max-height: 220px;
+            }
+
+            .creator-card-body .thanks-title {
+                font-size: 26px;
+            }
+
+            .creator-card-index {
+                font-size: 32px;
             }
 
             .thanks-title {
@@ -406,19 +614,28 @@
     </style>
 </head>
 <body>
-    <header id="Main-Navbar" class="visible">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <img src="Images/Banana_Peeled.png" alt="Logo Alpha Studios">
-                <h1>ALPHA STUDIOS</h1>
-            </div>
+    <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
 
-            <nav class="navbar-links">
-                <a href="index.html">Inicio</a>
-                <a href="Equipo.html">Equipo</a>
-                <a href="Contacto.html">Contacto</a>
+    <header id="Main-Navbar" class="jungle-nav visible" aria-label="Navegación principal">
+        <div class="jungle-nav-mist" aria-hidden="true"></div>
+        <div class="jungle-nav-body">
+            <nav class="jungle-nav-branch jungle-nav-branch--left" aria-label="Secciones izquierda">
+                <a class="jungle-nav-leaf" href="index.html" data-nav="inicio"><span class="jungle-nav-leaf-dot"></span>Inicio</a>
+                <a class="jungle-nav-leaf is-active" href="SpecialThanks.html" data-nav="thanks" aria-current="page"><span class="jungle-nav-leaf-dot"></span>Thanks</a>
+            </nav>
+            <a class="jungle-nav-totem" href="index.html" aria-label="Alpha Studios — Inicio">
+                <span class="jungle-nav-totem-ring" aria-hidden="true"></span>
+                <span class="jungle-nav-totem-ring jungle-nav-totem-ring--slow" aria-hidden="true"></span>
+                <img src="Images/Banana_Peeled.png" alt="">
+                <span class="jungle-nav-totem-label">ALPHA</span>
+            </a>
+            <nav class="jungle-nav-branch jungle-nav-branch--right" aria-label="Secciones derecha">
+                <a class="jungle-nav-leaf" href="Equipo.html" data-nav="equipo"><span class="jungle-nav-leaf-dot"></span>Equipo</a>
+                <a class="jungle-nav-leaf" href="Contacto.html" data-nav="contacto"><span class="jungle-nav-leaf-dot"></span>Contacto</a>
             </nav>
         </div>
+        <span class="jungle-nav-vine jungle-nav-vine--left" aria-hidden="true"></span>
+        <span class="jungle-nav-vine jungle-nav-vine--right" aria-hidden="true"></span>
     </header>
 
     <main class="thanks-journey">
@@ -444,80 +661,125 @@
         </section>
 
         <section class="thanks-stage" data-thanks-stage data-index="1" data-theme="banana">
-            <article class="thanks-panel">
+            <article class="thanks-panel thanks-panel--creator">
                 <p class="thanks-kind">Asset Recognition</p>
                 <h2 class="thanks-title">Banana Sprite</h2>
                 <p class="thanks-creator">Caz</p>
-                <p class="thanks-text">Gracias por este sprite. Nos ayudo mucho a darle personalidad al juego desde el principio.</p>
-                <div class="creator-showcase">
-                    <img class="creator-photo" src="Images/PFP's/caz_profile.png" alt="Asset preview de Caz">
-                    <div class="creator-meta">
-                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
-                        <p class="creator-source">Asset creator: Caz</p>
+                <div class="creator-card">
+                    <div class="creator-card-inner">
+                        <div class="creator-card-media">
+                            <img class="creator-photo" src="Images/PFP's/caz_profile.png" alt="Caz — Banana Sprite" loading="lazy" decoding="async">
+                            <span class="creator-card-badge">Sprite</span>
+                        </div>
+                        <div class="creator-card-body">
+                            <span class="creator-card-index" aria-hidden="true">01</span>
+                            <p class="thanks-kind">Asset Recognition</p>
+                            <h2 class="thanks-title">Banana Sprite</h2>
+                            <p class="thanks-creator">Caz</p>
+                            <a class="creator-card-cta" href="https://itch.io" target="_blank" rel="noopener noreferrer">
+                                Ver en itch.io <span class="creator-card-cta-arrow">→</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </article>
         </section>
 
         <section class="thanks-stage" data-thanks-stage data-index="2" data-theme="traps">
-            <article class="thanks-panel">
+            <article class="thanks-panel thanks-panel--creator">
                 <p class="thanks-kind">Asset Recognition</p>
                 <h2 class="thanks-title">Traps</h2>
                 <p class="thanks-creator">BDragon1727</p>
-                <p class="thanks-text">Tus trampas nos vinieron genial para hacer el gameplay mas entretenido y que cada zona tenga mas reto.</p>
-                <div class="creator-showcase">
-                    <img class="creator-photo" src="Images/PFP's/dragon.png" alt="Asset preview de BDragon1727">
-                    <div class="creator-meta">
-                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
-                        <p class="creator-source">Asset creator: BDragon1727</p>
+                <div class="creator-card">
+                    <div class="creator-card-inner">
+                        <div class="creator-card-media">
+                            <img class="creator-photo" src="Images/PFP's/dragon.png" alt="BDragon1727 — Traps" loading="lazy" decoding="async">
+                            <span class="creator-card-badge">Traps</span>
+                        </div>
+                        <div class="creator-card-body">
+                            <span class="creator-card-index" aria-hidden="true">02</span>
+                            <p class="thanks-kind">Asset Recognition</p>
+                            <h2 class="thanks-title">Traps</h2>
+                            <p class="thanks-creator">BDragon1727</p>
+                            <a class="creator-card-cta" href="https://itch.io" target="_blank" rel="noopener noreferrer">
+                                Ver en itch.io <span class="creator-card-cta-arrow">→</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </article>
         </section>
 
         <section class="thanks-stage" data-thanks-stage data-index="3" data-theme="monkey">
-            <article class="thanks-panel">
+            <article class="thanks-panel thanks-panel--creator">
                 <p class="thanks-kind">Asset Recognition</p>
                 <h2 class="thanks-title">Monkey Sprite</h2>
                 <p class="thanks-creator">Pixelsym</p>
-                <p class="thanks-text">Este sprite del mono encajo perfecto con la idea del juego y nos ayudo a darle mas vida al personaje principal.</p>
-                <div class="creator-showcase">
-                    <img class="creator-photo" src="Images/PFP's/Pyxelskym.png" alt="Asset preview de Pixelsym">
-                    <div class="creator-meta">
-                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
-                        <p class="creator-source">Asset creator: Pixelsym</p>
+                <div class="creator-card">
+                    <div class="creator-card-inner">
+                        <div class="creator-card-media">
+                            <img class="creator-photo" src="Images/PFP's/Pyxelskym.png" alt="Pixelsym — Monkey Sprite" loading="lazy" decoding="async">
+                            <span class="creator-card-badge">Sprite</span>
+                        </div>
+                        <div class="creator-card-body">
+                            <span class="creator-card-index" aria-hidden="true">03</span>
+                            <p class="thanks-kind">Asset Recognition</p>
+                            <h2 class="thanks-title">Monkey Sprite</h2>
+                            <p class="thanks-creator">Pixelsym</p>
+                            <a class="creator-card-cta" href="https://itch.io" target="_blank" rel="noopener noreferrer">
+                                Ver en itch.io <span class="creator-card-cta-arrow">→</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </article>
         </section>
 
         <section class="thanks-stage" data-thanks-stage data-index="4" data-theme="tileset">
-            <article class="thanks-panel">
+            <article class="thanks-panel thanks-panel--creator">
                 <p class="thanks-kind">Asset Recognition</p>
                 <h2 class="thanks-title">TileSet</h2>
                 <p class="thanks-creator">Anokolisa</p>
-                <p class="thanks-text">Tu tileset fue clave para montar escenarios con coherencia y que la exploracion se sienta natural.</p>
-                <div class="creator-showcase">
-                    <img class="creator-photo" src="Images/PFP's/Anakolista.png" alt="Asset preview de Anokolisa">
-                    <div class="creator-meta">
-                        <a class="thanks-link" href="https://itch.io" target="_blank" rel="noopener noreferrer">Available on itch.io</a>
-                        <p class="creator-source">Asset creator: Anokolisa</p>
+                <div class="creator-card">
+                    <div class="creator-card-inner">
+                        <div class="creator-card-media">
+                            <img class="creator-photo" src="Images/PFP's/Anakolista.png" alt="Anokolisa — TileSet" loading="lazy" decoding="async">
+                            <span class="creator-card-badge">Tileset</span>
+                        </div>
+                        <div class="creator-card-body">
+                            <span class="creator-card-index" aria-hidden="true">04</span>
+                            <p class="thanks-kind">Asset Recognition</p>
+                            <h2 class="thanks-title">TileSet</h2>
+                            <p class="thanks-creator">Anokolisa</p>
+                            <a class="creator-card-cta" href="https://itch.io" target="_blank" rel="noopener noreferrer">
+                                Ver en itch.io <span class="creator-card-cta-arrow">→</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </article>
         </section>
 
         <section class="thanks-stage" data-thanks-stage data-index="5" data-theme="ui">
-            <article class="thanks-panel">
+            <article class="thanks-panel thanks-panel--creator">
                 <p class="thanks-kind">Asset Recognition</p>
                 <h2 class="thanks-title">UI Elements</h2>
                 <p class="thanks-creator">Kenney</p>
-                <p class="thanks-text">Los elementos de UI nos ayudaron a dejar una interfaz mucho mas clara y agradable de usar.</p>
-                <div class="creator-showcase">
-                    <img class="creator-photo" src="Images/PFP's/kenney.png" alt="Asset preview de Kenney">
-                    <div class="creator-meta">
-                        <a class="thanks-link" href="https://www.kenney.nl" target="_blank" rel="noopener noreferrer">Available on www.Kenney.nl</a>
-                        <p class="creator-source">Asset creator: Kenney</p>
+                <div class="creator-card">
+                    <div class="creator-card-inner">
+                        <div class="creator-card-media">
+                            <img class="creator-photo" src="Images/PFP's/kenney.png" alt="Kenney — UI Elements" loading="lazy" decoding="async">
+                            <span class="creator-card-badge">UI Pack</span>
+                        </div>
+                        <div class="creator-card-body">
+                            <span class="creator-card-index" aria-hidden="true">05</span>
+                            <p class="thanks-kind">Asset Recognition</p>
+                            <h2 class="thanks-title">UI Elements</h2>
+                            <p class="thanks-creator">Kenney</p>
+                            <a class="creator-card-cta" href="https://www.kenney.nl" target="_blank" rel="noopener noreferrer">
+                                Ver en kenney.nl <span class="creator-card-cta-arrow">→</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </article>

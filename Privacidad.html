@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var m=window.matchMedia;if(m("(hover:hover) and (pointer:fine)").matches&&!m("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("custom-cursor");})();</script>
     <title>APE-ICTION | Privacidad</title>
-    <style>html, body, *, *::before, *::after, :hover, :active, :focus, :focus-visible { cursor: none !important; }</style>
-
     <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
@@ -27,7 +26,7 @@
 
         .privacy-wrapper {
             max-width: 1000px;
-            margin: 70px auto 0;
+            margin: 96px auto 0;
             padding: 0 20px;
         }
 
@@ -116,19 +115,28 @@
     </style>
 </head>
 <body>
-    <header id="Main-Navbar" class="visible">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <img src="Images/Banana_Peeled.png" alt="Logo Alpha Studios">
-                <h1>ALPHA STUDIOS</h1>
-            </div>
+    <a class="back-btn" href="index.html" aria-label="Volver a inicio">← Volver</a>
 
-            <nav class="navbar-links">
-                <a href="index.html">Inicio</a>
-                <a href="Equipo.html">Equipo</a>
-                <a href="Contacto.html">Contacto</a>
+    <header id="Main-Navbar" class="jungle-nav visible" aria-label="Navegación principal">
+        <div class="jungle-nav-mist" aria-hidden="true"></div>
+        <div class="jungle-nav-body">
+            <nav class="jungle-nav-branch jungle-nav-branch--left" aria-label="Secciones izquierda">
+                <a class="jungle-nav-leaf" href="index.html" data-nav="inicio"><span class="jungle-nav-leaf-dot"></span>Inicio</a>
+                <a class="jungle-nav-leaf" href="SpecialThanks.html" data-nav="thanks"><span class="jungle-nav-leaf-dot"></span>Thanks</a>
+            </nav>
+            <a class="jungle-nav-totem" href="index.html" aria-label="Alpha Studios — Inicio">
+                <span class="jungle-nav-totem-ring" aria-hidden="true"></span>
+                <span class="jungle-nav-totem-ring jungle-nav-totem-ring--slow" aria-hidden="true"></span>
+                <img src="Images/Banana_Peeled.png" alt="">
+                <span class="jungle-nav-totem-label">ALPHA</span>
+            </a>
+            <nav class="jungle-nav-branch jungle-nav-branch--right" aria-label="Secciones derecha">
+                <a class="jungle-nav-leaf" href="Equipo.html" data-nav="equipo"><span class="jungle-nav-leaf-dot"></span>Equipo</a>
+                <a class="jungle-nav-leaf" href="Contacto.html" data-nav="contacto"><span class="jungle-nav-leaf-dot"></span>Contacto</a>
             </nav>
         </div>
+        <span class="jungle-nav-vine jungle-nav-vine--left" aria-hidden="true"></span>
+        <span class="jungle-nav-vine jungle-nav-vine--right" aria-hidden="true"></span>
     </header>
 
     <main class="privacy-wrapper">

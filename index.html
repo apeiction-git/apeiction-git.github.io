@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="page-home">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){var m=window.matchMedia;if(m("(hover:hover) and (pointer:fine)").matches&&!m("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("custom-cursor");})();</script>
     <title>Ape-ICTION | Main </title>
-    <style>html, body, *, *::before, *::after, :hover, :active, :focus, :focus-visible { cursor: none !important; }</style>
-
                 <!--                RECURSOS IMPORTADOS                    -->
     <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
@@ -27,53 +26,190 @@
 
 </head>
 
-<header id="Main-Navbar">
-    <div class="navbar-container">
-        <div class="navbar-logo">
-            <img src="Images/Banana_Peeled.png" alt="Logo Alfa Studios">
-            <h1>ALPHA STUDIOS</h1>
-        </div>
-
-        <nav class="navbar-links">
-            <a href="SpecialThanks.html">Special Thanks</a>
-            <a href="Equipo.html">Equipo</a>
-            <a href="Contacto.html">Contacto</a>
+<header id="Main-Navbar" class="jungle-nav" aria-label="Navegación principal">
+    <div class="jungle-nav-mist" aria-hidden="true"></div>
+    <div class="jungle-nav-body">
+        <nav class="jungle-nav-branch jungle-nav-branch--left" aria-label="Secciones izquierda">
+            <a class="jungle-nav-leaf" href="index.html" data-nav="inicio"><span class="jungle-nav-leaf-dot"></span>Inicio</a>
+            <a class="jungle-nav-leaf" href="SpecialThanks.html" data-nav="thanks"><span class="jungle-nav-leaf-dot"></span>Thanks</a>
+        </nav>
+        <a class="jungle-nav-totem" href="index.html" aria-label="Alpha Studios — Inicio">
+            <span class="jungle-nav-totem-ring" aria-hidden="true"></span>
+            <span class="jungle-nav-totem-ring jungle-nav-totem-ring--slow" aria-hidden="true"></span>
+            <img src="Images/Banana_Peeled.png" alt="">
+            <span class="jungle-nav-totem-label">ALPHA</span>
+        </a>
+        <nav class="jungle-nav-branch jungle-nav-branch--right" aria-label="Secciones derecha">
+            <a class="jungle-nav-leaf" href="Equipo.html" data-nav="equipo"><span class="jungle-nav-leaf-dot"></span>Equipo</a>
+            <a class="jungle-nav-leaf" href="Contacto.html" data-nav="contacto"><span class="jungle-nav-leaf-dot"></span>Contacto</a>
         </nav>
     </div>
+    <span class="jungle-nav-vine jungle-nav-vine--left" aria-hidden="true"></span>
+    <span class="jungle-nav-vine jungle-nav-vine--right" aria-hidden="true"></span>
 </header>
 
 
-<body>
+<body class="page-index">
 
-    <!-- HERO PRINCIPAL -->
-    <section id="Main-Div" data-reveal>
-        <div class="hero-content">
-            <p class="hero-kicker">ALPHA STUDIOS PRESENTA</p>
-            <h1 id="Main-Title">APE-ICTION</h1>
-            <p id="Main-Subtitle">Saltar, escalar y deslizarse por la jungla.</p>
+    <!-- Fondo exclusivo del index (primera impresión) -->
+    <div class="index-ambient" aria-hidden="true">
+        <div class="index-ambient__aurora"></div>
+        <div class="index-ambient__canopy"></div>
+        <div class="index-ambient__mist"></div>
+        <div class="index-ambient__floor"></div>
+        <div class="index-ambient__fireflies"></div>
+        <div class="index-ambient__grain"></div>
+    </div>
 
-            <div class="hero-actions">
-                <a class="jungle-btn" href="ape-iction-demo.zip" download="ape-iction-demo.zip">DOWNLOAD</a>
-                <a class="jungle-btn secondary" href="Equipo.html">VER EQUIPO</a>
-            </div>
-
-            <p class="hero-status">PC | Demo disponible</p>
+    <!-- HERO IMPACTO — primera vista -->
+    <section id="hero-splash" class="hero-splash">
+        <div class="hero-ambient" aria-hidden="true">
+            <div class="hero-rays"></div>
+            <span class="hero-orb hero-orb--1"></span>
+            <span class="hero-orb hero-orb--2"></span>
+            <span class="hero-orb hero-orb--3"></span>
+            <span class="hero-spark hero-spark--a"></span>
+            <span class="hero-spark hero-spark--b"></span>
+            <span class="hero-spark hero-spark--c"></span>
         </div>
 
-        <div class="hero-visual">
-            <div class="hero-video-shell">
-                <video id="Main-Video" class="hero-video" controls preload="metadata" playsinline>
-                    <source src="Videos/trailer_Ape-Iction.mp4" type="video/mp4">
-                    Tu navegador no soporta el elemento de video.
-                </video>
-                <div class="hero-video-info">
-                    <span class="hero-video-badge">TRAILER</span>
+        <div class="hero-splash-inner">
+            <div class="hero-splash-grid">
+                <div class="hero-content">
+                    <div class="hero-brand-row">
+                        <img class="hero-brand-icon" src="Images/Banana_Peeled.png" alt="Ape-ICTION">
+                        <p class="hero-kicker">ALPHA STUDIOS PRESENTA</p>
+                    </div>
 
+                    <h1 id="Main-Title" class="hero-title-impact">
+                        <span class="hero-title-line">
+                            <span class="hero-title-word">APE</span><span class="hero-title-sep">-</span><span class="hero-title-word hero-title-word--accent">ICTION</span>
+                        </span>
+                    </h1>
+
+                    <p id="Main-Subtitle" class="hero-tagline">Saltar, escalar y deslizarse por la jungla.</p>
+
+                    <div class="hero-pills">
+                        <span class="hero-pill">PC</span>
+                        <span class="hero-pill hero-pill--glow">Demo disponible</span>
+                        <span class="hero-pill hero-pill--itch">itch.io</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a class="jungle-btn hero-btn-primary" href="ape-iction-demo.zip" download="ape-iction-demo.zip">DOWNLOAD</a>
+                        <a class="jungle-btn itch-btn" href="https://ape-iction.itch.io" target="_blank" rel="noopener noreferrer">ITCH.IO</a>
+                        <a class="jungle-btn secondary" href="Equipo.html">EQUIPO</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-video-shell" data-video-player>
+                        <div class="hero-video-frame">
+                            <div class="hero-video-corner hero-video-corner--tl" aria-hidden="true"></div>
+                            <div class="hero-video-corner hero-video-corner--tr" aria-hidden="true"></div>
+                            <div class="hero-video-corner hero-video-corner--bl" aria-hidden="true"></div>
+                            <div class="hero-video-corner hero-video-corner--br" aria-hidden="true"></div>
+                            <div class="hero-video-glow" aria-hidden="true"></div>
+                            <div class="hero-video-scanline" aria-hidden="true"></div>
+                            <video id="Main-Video" class="hero-video" controls preload="none" playsinline poster="">
+                                <source src="Videos/trailer_Ape-Iction.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <button class="hero-video-play" type="button" data-video-play aria-label="Reproducir trailer">
+                                <span class="hero-video-play-icon" aria-hidden="true"></span>
+                                <span class="hero-video-play-label">PLAY</span>
+                            </button>
+                        </div>
+                        <div class="hero-video-info">
+                            <span class="hero-video-badge">TRAILER</span>
+                            <p class="hero-video-caption">Ape-ICTION — Trailer Oficial</p>
+                            <div class="hero-video-progress" aria-hidden="true">
+                                <span class="hero-video-progress-bar" data-video-progress></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <a class="hero-scroll-cue" href="#itch-play" aria-label="Ver más contenido">
+                <span class="hero-scroll-cue-text">EXPLORAR</span>
+                <span class="hero-scroll-cue-arrow">▼</span>
+            </a>
         </div>
     </section>
 
+    <!-- ITCH.IO -->
+    <section id="itch-play" class="itch-section" data-reveal>
+        <div class="itch-section-glow" aria-hidden="true"></div>
+        <div class="itch-section-inner">
+            <p class="itch-eyebrow">También en tiendas indie</p>
+            <h2 class="itch-title">Disponible en <span class="itch-brand">itch.io</span></h2>
+            <p class="itch-desc">
+                Descarga la demo directamente o sigue el proyecto en nuestra página de itch.io.
+                Ahí publicaremos builds, novedades y el acceso al juego cuando esté listo.
+            </p>
+            <div class="itch-actions">
+                <a class="jungle-btn itch-btn itch-btn--large" href="https://ape-iction.itch.io" target="_blank" rel="noopener noreferrer">
+                    <span class="itch-btn-logo">itch.io</span>
+                    <span class="itch-btn-label">Ir a la página del juego</span>
+                </a>
+                <a class="jungle-btn secondary" href="ape-iction-demo.zip" download="ape-iction-demo.zip">Descargar demo ZIP</a>
+            </div>
+            <!-- Actualiza href="https://ape-iction.itch.io" con tu URL real de itch.io -->
+        </div>
+    </section>
+
+    <!-- Patrocinadores: sustituye src, alt y href de cada .sponsor-card -->
+    <section id="sponsors" class="sponsors-banner" data-reveal aria-labelledby="sponsors-title">
+        <div class="sponsors-banner__header">
+            <p class="sponsors-banner__eyebrow">Proyecto Impulsado por</p>
+            <h2 id="sponsors-title" class="sponsors-banner__title">Entidades colaboradoras</h2>
+        </div>
+
+        <div class="sponsors-marquee" data-sponsors-marquee>
+            <div class="sponsors-marquee__fade sponsors-marquee__fade--left" aria-hidden="true"></div>
+            <div class="sponsors-marquee__fade sponsors-marquee__fade--right" aria-hidden="true"></div>
+            <div class="sponsors-marquee__viewport">
+                <div class="sponsors-marquee__track" data-sponsors-track>
+                    <div class="sponsors-marquee__set">
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" aria-label="Patrocinador 1">
+                            <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" aria-label="Patrocinador 2">
+                        <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" aria-label="Patrocinador 3">
+                            <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" aria-label="Patrocinador 4">
+                        <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" aria-label="Patrocinador 5">
+                        <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                    <div class="sponsors-marquee__set" aria-hidden="true">
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                            <img src="Images/Banana_Peeled.png" alt="" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                        <a class="sponsor-card" href="#" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="Images/Banana_Peeled.png" alt="Logo patrocinador 1" width="160" height="80" loading="lazy" decoding="async">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="sponsors-banner__note">¿Quieres aparecer aquí? <a href="Contacto.html">Contáctanos</a></p>
+    </section>
 
     <div id="ResumeMain-Div" data-reveal>
         <h2>¿Qué es Ape-ICTION?</h2>
@@ -85,42 +221,71 @@
         </p>
     </div>
 
-    <section id="Main-Gallery" data-reveal>
-        <div class="gallery-header">
-            <h2>Galería</h2>
+    <section id="Main-Gallery" class="gallery-jungle" data-reveal aria-labelledby="gallery-jungle-title">
+        <div class="gallery-jungle__header">
+            <p class="gallery-jungle__eyebrow">Instantáneas del juego</p>
+            <h2 id="gallery-jungle-title">Galería</h2>
+            <p class="gallery-jungle__lead">Selecciona una captura o amplía la imagen principal</p>
         </div>
 
-        <div class="gallery-slider" data-gallery>
-            <button class="gallery-nav prev" type="button" data-gallery-prev aria-label="Imagen anterior">‹</button>
+        <div class="gallery-jungle__shell" data-gallery>
+            <div class="gallery-jungle__projector">
+                <div class="gallery-jungle__vine gallery-jungle__vine--tl" aria-hidden="true"></div>
+                <div class="gallery-jungle__vine gallery-jungle__vine--br" aria-hidden="true"></div>
 
-            <div class="gallery-track" data-gallery-track>
-                <article class="gallery-slide active">
-                    <img src="Images/MainMENUpic_GALERY.png" alt="Escena de juego 1">
-                </article>
-                <article class="gallery-slide">
-                    <img src="Images/captura1.png" alt="Escena de juego 2">
-                </article>
-                <article class="gallery-slide">
-                    <img src="Images/captura2.png" alt="Escena de juego 3">
-                </article>
-                <article class="gallery-slide">
-                    <img src="Images/captura3.png" alt="Escena de juego 4">
-                </article>
-                <article class="gallery-slide">
-                    <img src="Images/captura4hud.png" alt="Escena de juego 5">
-                </article>
-                <article class="gallery-slide">
-                    <img src="Images/Captura de pantalla5.png" alt="Escena de juego 6">
-                </article>
-                <article class="gallery-slide">
-                    <img src="Images/Captura de pantalla6.png" alt="Escena de juego 7">
-                </article>
+                <button type="button" class="gallery-jungle__arrow gallery-jungle__arrow--prev" data-gallery-prev aria-label="Imagen anterior">‹</button>
+
+                <figure class="gallery-jungle__screen">
+                    <button type="button" class="gallery-jungle__screen-btn" data-gallery-open aria-label="Ver imagen en grande">
+                        <img data-gallery-main src="Images/MainMENUpic_GALERY.png" alt="Escena de juego 1" width="1080" height="620" decoding="async" fetchpriority="high">
+                        <span class="gallery-jungle__zoom-badge" aria-hidden="true">
+                            <span class="gallery-jungle__zoom-icon"></span>
+                            Ampliar
+                        </span>
+                    </button>
+                    <figcaption class="gallery-jungle__caption" data-gallery-caption>Main Menu</figcaption>
+                </figure>
+
+                <button type="button" class="gallery-jungle__arrow gallery-jungle__arrow--next" data-gallery-next aria-label="Imagen siguiente">›</button>
             </div>
 
-            <button class="gallery-nav next" type="button" data-gallery-next aria-label="Imagen siguiente">›</button>
-        </div>
+            <div class="gallery-jungle__reel-wrap">
+                <div class="gallery-jungle__reel" data-gallery-reel>
+                    <button type="button" class="gallery-jungle__thumb is-active" data-gallery-index="0" aria-label="Ver escena 1" aria-current="true">
+                        <img src="Images/MainMENUpic_GALERY.png" alt="" width="120" height="68" decoding="async">
+                        <span class="gallery-jungle__thumb-num">01</span>
+                    </button>
+                    <button type="button" class="gallery-jungle__thumb" data-gallery-index="1" aria-label="Look Around">
+                        <img src="Images/captura1.png" alt="" width="120" height="68" loading="lazy" decoding="async">
+                        <span class="gallery-jungle__thumb-num">02</span>
+                    </button>
+                    <button type="button" class="gallery-jungle__thumb" data-gallery-index="2" aria-label="Use the environment">
+                        <img src="Images/captura2.png" alt="" width="120" height="68" loading="lazy" decoding="async">
+                        <span class="gallery-jungle__thumb-num">03</span>
+                    </button>
+                    <button type="button" class="gallery-jungle__thumb" data-gallery-index="3" aria-label="complete levels">
+                        <img src="Images/captura3.png" alt="" width="120" height="68" loading="lazy" decoding="async">
+                        <span class="gallery-jungle__thumb-num">04</span>
+                    </button>
+                    <button type="button" class="gallery-jungle__thumb" data-gallery-index="4" aria-label="dont get tired">
+                        <img src="Images/captura4hud.png" alt="" width="120" height="68" loading="lazy" decoding="async">
+                        <span class="gallery-jungle__thumb-num">05</span>
+                    </button>
+                    <button type="button" class="gallery-jungle__thumb" data-gallery-index="5" aria-label="fly over obstacles">
+                        <img src="Images/Captura de pantalla5.png" alt="" width="120" height="68" loading="lazy" decoding="async">
+                        <span class="gallery-jungle__thumb-num">06</span>
+                    </button>
+                    <button type="button" class="gallery-jungle__thumb" data-gallery-index="6" aria-label="use all your skill">
+                        <img src="Images/Captura de pantalla6.png" alt="" width="120" height="68" loading="lazy" decoding="async">
+                        <span class="gallery-jungle__thumb-num">07</span>
+                    </button>
+                </div>
+            </div>
 
-        <div class="gallery-dots" data-gallery-dots></div>
+            <p class="gallery-jungle__counter" data-gallery-counter>
+                <span data-gallery-current>1</span> / <span data-gallery-total>7</span>
+            </p>
+        </div>
     </section>
 
     <section id="Main-CTA-Double" data-reveal>
@@ -128,16 +293,10 @@
         <p>Descarga el juego o conoce al equipo detrás de APE-ICTION.</p>
         <div class="cta-double-actions">
             <a class="jungle-btn" href="ape-iction-demo.zip" download="ape-iction-demo.zip">DOWNLOAD</a>
+            <a class="jungle-btn itch-btn" href="https://ape-iction.itch.io" target="_blank" rel="noopener noreferrer">ITCH.IO</a>
             <a class="jungle-btn secondary" href="Equipo.html">VER EQUIPO</a>
         </div>
     </section>
-
-    <div id="Gallery-Lightbox" class="gallery-lightbox" aria-hidden="true">
-        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Cerrar galeria">×</button>
-        <button class="lightbox-nav prev" type="button" data-lightbox-prev aria-label="Imagen anterior">‹</button>
-        <img id="Lightbox-Image" src="" alt="Vista ampliada de galeria">
-        <button class="lightbox-nav next" type="button" data-lightbox-next aria-label="Imagen siguiente">›</button>
-    </div>
 
 </body>
 
@@ -150,6 +309,7 @@
         <div class="footer-links">
             <a href="#">Inicio</a>
             <a href="ape-iction-demo.zip" download="ape-iction-demo.zip">Descargar</a>
+            <a href="https://ape-iction.itch.io" target="_blank" rel="noopener noreferrer">itch.io</a>
             <a href="Contacto.html">Contacto</a>
             <a href="Privacidad.html">Privacidad</a>
         </div>
@@ -158,6 +318,17 @@
     </div>
 </footer>
 
+
+<div id="Gallery-Lightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista ampliada de galería">
+    <div class="gallery-lightbox__backdrop" data-lightbox-close tabindex="-1" aria-hidden="true"></div>
+    <button class="lightbox-close" type="button" data-lightbox-close aria-label="Cerrar galería">×</button>
+    <button class="lightbox-nav prev" type="button" data-lightbox-prev aria-label="Imagen anterior">‹</button>
+    <figure class="gallery-lightbox__frame">
+        <img id="Lightbox-Image" src="" alt="">
+        <figcaption id="Lightbox-Caption"></figcaption>
+    </figure>
+    <button class="lightbox-nav next" type="button" data-lightbox-next aria-label="Imagen siguiente">›</button>
+</div>
 
 <script src="scripts.js"> </script>
 </html>

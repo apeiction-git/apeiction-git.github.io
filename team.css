@@ -11,6 +11,7 @@ body {
 
 /* Cada pantalla */
 .slide {
+    position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -72,28 +73,12 @@ INTRO IMPACTANTE
         0 12px 30px rgba(0,0,0,0.55);
 }
 
-.back-btn {
+/* En slides a pantalla completa el botón va absoluto dentro del slide */
+.slide .back-btn {
     position: absolute;
     top: 26px;
     left: 26px;
     z-index: 5;
-    padding: 10px 16px;
-    border-radius: 12px;
-    border: 1px solid rgba(120, 255, 160, 0.35);
-    background: rgba(0, 0, 0, 0.45);
-    color: #e9ffe4;
-    text-decoration: none;
-    font-family: 'Carter One', cursive;
-    font-size: 16px;
-    letter-spacing: 0.4px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-
-.back-btn:hover {
-    transform: translateY(-2px);
-    background: rgba(18, 52, 26, 0.75);
-    border-color: rgba(150, 255, 190, 0.55);
 }
 
 /* Panel central */
@@ -272,6 +257,18 @@ SLIDE 2×2 (CONTACTO)
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.team-grid-title {
+    grid-column: 1 / -1;
+    margin: 0 0 8px;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    color: #d9ffd0;
+    text-shadow:
+        0 0 20px rgba(80, 255, 120, 0.35),
+        0 4px 10px rgba(0, 0, 0, 0.75);
+    letter-spacing: 2px;
 }
 
 .top-left-space {
